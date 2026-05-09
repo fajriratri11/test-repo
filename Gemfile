@@ -10,4 +10,6 @@ gem 'csv'
 gem 'logger'
 gem 'base64'
 gem 'bigdecimal'
+gem 'tzinfo'
+gem 'tzinfo-data'
 

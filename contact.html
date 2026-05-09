@@ -1,10 +1,371 @@
 ---
 layout: page
 title: Contact
+permalink: /contact/
 ---
 
-<div class="contact-info">
-    <p>Feel free to reach out! Edit <code>contact.html</code> to add your contact details.</p>
+<style>
+  :root {
+    --contact-ink: #102033;
+    --contact-muted: #5b6777;
+    --contact-line: rgba(16, 32, 51, 0.12);
+    --contact-green: #0f7a5b;
+    --contact-green-dark: #0b5d45;
+    --contact-gold: #c79a3b;
+    --contact-soft: #f7fbf9;
+    --contact-card: #ffffff;
+    --contact-shadow: 0 18px 45px rgba(16, 32, 51, 0.08);
+  }
 
-    <p>You can also add social links in <code>_config.yml</code> under <code>social-network-links</code> — they will appear in the site footer automatically.</p>
+  .contact-page {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 24px 18px 56px;
+    color: var(--contact-ink);
+    background:
+      radial-gradient(circle at top right, rgba(15, 122, 91, 0.09), transparent 30%),
+      linear-gradient(180deg, #ffffff 0%, var(--contact-soft) 100%);
+    border-radius: 26px;
+  }
+
+  .contact-hero {
+    padding: 18px 0 28px;
+    border-bottom: 1px solid var(--contact-line);
+  }
+
+  .contact-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: rgba(15, 122, 91, 0.08);
+    color: var(--contact-green-dark);
+    font-size: 0.82rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+
+  .contact-hero h1 {
+    margin: 0;
+    font-size: clamp(2.3rem, 4.2vw, 4rem);
+    line-height: 1.02;
+    font-weight: 900;
+    letter-spacing: -0.05em;
+    color: var(--contact-green);
+  }
+
+  .contact-hero p {
+    max-width: 860px;
+    margin: 16px 0 0;
+    color: var(--contact-muted);
+    line-height: 1.9;
+    font-size: 1.05rem;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1.08fr 0.92fr;
+    gap: 24px;
+    margin-top: 28px;
+  }
+
+  .contact-card {
+    background: var(--contact-card);
+    border: 1px solid var(--contact-line);
+    border-radius: 24px;
+    padding: 26px;
+    box-shadow: var(--contact-shadow);
+  }
+
+  .contact-card h2 {
+    margin: 0 0 14px;
+    font-size: 1.35rem;
+    color: var(--contact-green-dark);
+    font-weight: 900;
+    letter-spacing: -0.02em;
+  }
+
+  .contact-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .contact-item {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 14px;
+    align-items: start;
+    padding: 16px 0;
+    border-top: 1px solid var(--contact-line);
+  }
+
+  .contact-item:first-child {
+    border-top: 0;
+    padding-top: 0;
+  }
+
+  .contact-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(15, 122, 91, 0.10);
+    color: var(--contact-green-dark);
+    font-size: 1rem;
+    font-weight: 900;
+  }
+
+  .contact-item h3 {
+    margin: 0 0 4px;
+    font-size: 1rem;
+    font-weight: 900;
+  }
+
+  .contact-item p,
+  .contact-item a {
+    margin: 0;
+    color: var(--contact-muted);
+    line-height: 1.7;
+    text-decoration: none;
+    word-break: break-word;
+  }
+
+  .contact-item a:hover {
+    color: var(--contact-green-dark);
+    text-decoration: underline;
+  }
+
+  .contact-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 18px;
+  }
+
+  .contact-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 16px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 800;
+    border: 1px solid transparent;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  }
+
+  .contact-btn:hover {
+    transform: translateY(-1px);
+    text-decoration: none;
+  }
+
+  .contact-btn.primary {
+    background: linear-gradient(135deg, var(--contact-green), var(--contact-green-dark));
+    color: #fff;
+    box-shadow: 0 12px 24px rgba(15, 122, 91, 0.22);
+  }
+
+  .contact-btn.secondary {
+    background: #fff;
+    color: var(--contact-green-dark);
+    border-color: rgba(15, 122, 91, 0.18);
+  }
+
+  .contact-profile {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .contact-photo {
+    width: 100%;
+    max-width: 320px;
+    border-radius: 20px;
+    border: 1px solid var(--contact-line);
+    box-shadow: var(--contact-shadow);
+    object-fit: cover;
+    background: #fff;
+  }
+
+  .contact-profile h2 {
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: 900;
+    color: var(--contact-green-dark);
+  }
+
+  .contact-profile p {
+    margin: 0;
+    color: var(--contact-muted);
+    line-height: 1.8;
+  }
+
+  .contact-note {
+    margin-top: 16px;
+    padding: 18px 20px;
+    border-radius: 18px;
+    background: rgba(199, 154, 59, 0.08);
+    border: 1px solid rgba(199, 154, 59, 0.16);
+    color: var(--contact-muted);
+    line-height: 1.8;
+  }
+
+  .contact-footer {
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid var(--contact-line);
+    color: var(--contact-muted);
+    font-size: 0.95rem;
+  }
+
+  .contact-links-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 18px;
+  }
+
+  .contact-link-chip {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    background: rgba(255,255,255,0.96);
+    border: 1px solid var(--contact-line);
+    border-radius: 18px;
+    padding: 14px 16px;
+    box-shadow: var(--contact-shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .contact-link-chip:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 24px 60px rgba(16, 32, 51, 0.14);
+  }
+
+  .contact-link-chip strong {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--contact-green-dark);
+  }
+
+  .contact-link-chip span {
+    display: block;
+    color: var(--contact-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    word-break: break-word;
+  }
+
+  @media (max-width: 900px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .contact-profile {
+      align-items: flex-start;
+    }
+
+    .contact-links-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<div class="contact-page">
+  <section class="contact-hero">
+    <div class="contact-kicker">FUSION-AI Contact</div>
+    <h1>Contact</h1>
+    <p>
+      I welcome academic discussions, research collaborations, project inquiries, and professional opportunities related to forecasting, analytics, simulation, optimization, and intelligent decision support.
+    </p>
+  </section>
+
+  <div class="contact-grid">
+    <section class="contact-card">
+      <h2>Get in Touch</h2>
+      <ul class="contact-list">
+        <li class="contact-item">
+          <div class="contact-icon">@</div>
+          <div>
+            <h3>Email</h3>
+            <p><a href="mailto:fahrudin.muna@mail.ugm.ac.id">fahrudin.muna@mail.ugm.ac.id</a></p>
+          </div>
+        </li>
+
+        <li class="contact-item">
+          <div class="contact-icon">GH</div>
+          <div>
+            <h3>GitHub</h3>
+            <p><a href="https://github.com/fadin2006/" target="_blank" rel="noopener noreferrer">github.com/fadin2006</a></p>
+          </div>
+        </li>
+
+        <li class="contact-item">
+          <div class="contact-icon">GS</div>
+          <div>
+            <h3>Google Scholar</h3>
+            <p><a href="https://scholar.google.com/citations?hl=en&user=6-zjGLcAAAAJ" target="_blank" rel="noopener noreferrer">Scholar profile</a></p>
+          </div>
+        </li>
+
+        <li class="contact-item">
+          <div class="contact-icon">LI</div>
+          <div>
+            <h3>LinkedIn</h3>
+            <p><a href="https://www.linkedin.com/in/m-fahrudin-muna-34974275/" target="_blank" rel="noopener noreferrer">LinkedIn profile</a></p>
+          </div>
+        </li>
+
+        <li class="contact-item">
+          <div class="contact-icon">KF</div>
+          <div>
+            <h3>Affiliation</h3>
+            <p>Interdisciplinary Research Center for Smart Mobility and Logistics, King Fahd University of Petroleum and Minerals, Dhahran, Saudi Arabia</p>
+          </div>
+        </li>
+      </ul>
+
+      <div class="contact-links-grid" aria-label="Quick links">
+        <a class="contact-link-chip" href="mailto:fahrudin.muna@mail.ugm.ac.id">
+          <strong>Email me</strong>
+          <span>fahrudin.muna@mail.ugm.ac.id</span>
+        </a>
+        <a class="contact-link-chip" href="https://github.com/fadin2006/" target="_blank" rel="noopener noreferrer">
+          <strong>GitHub</strong>
+          <span>fadin2006</span>
+        </a>
+        <a class="contact-link-chip" href="https://scholar.google.com/citations?hl=en&user=6-zjGLcAAAAJ" target="_blank" rel="noopener noreferrer">
+          <strong>Google Scholar</strong>
+          <span>Publication record</span>
+        </a>
+      </div>
+
+      <div class="contact-actions">
+        <a class="contact-btn primary" href="mailto:fahrudin.muna@mail.ugm.ac.id">Send Email</a>
+        <a class="contact-btn secondary" href="/cv/">View CV</a>
+        <a class="contact-btn secondary" href="/research/">Research</a>
+      </div>
+    </section>
+
+    <section class="contact-card contact-profile">
+      <img class="contact-photo" src="/assets/img/profile.jpg" alt="M Fahrudin Muna portrait">
+      <div>
+        <h2>M Fahrudin Muna</h2>
+        <p>Researcher in industrial and systems engineering, with interests in forecasting, analytics, simulation, optimization, and decision support.</p>
+      </div>
+      <div class="contact-note">
+        Current focus areas include renewable energy analytics, short-term forecasting, simulation-based analysis, stochastic modeling, and optimization for intelligent decision-making.
+      </div>
+      <div class="contact-footer">
+        Preferred communication: email. For collaborations, include a short summary of your topic, timeline, and expected outcome.
+      </div>
+    </section>
+  </div>
 </div>

@@ -1,0 +1,338 @@
+---
+layout: page
+title: Research
+permalink: /research/
+---
+
+<style>
+  :root {
+    --fusion-ink: #102033;
+    --fusion-muted: #5f6d7d;
+    --fusion-line: rgba(16, 32, 51, 0.10);
+    --fusion-bg: #f6f8fb;
+    --fusion-card: rgba(255, 255, 255, 0.96);
+    --fusion-teal: #0f766e;
+    --fusion-teal-dark: #0b5d57;
+    --fusion-gold: #c79a3b;
+    --fusion-shadow: 0 20px 50px rgba(16, 32, 51, 0.08);
+  }
+
+  .fusion-home {
+    color: var(--fusion-ink);
+    background:
+      radial-gradient(circle at top left, rgba(15, 118, 110, 0.10), transparent 30%),
+      radial-gradient(circle at top right, rgba(199, 154, 59, 0.10), transparent 26%),
+      linear-gradient(180deg, #ffffff 0%, var(--fusion-bg) 100%);
+    border-radius: 30px;
+    overflow: hidden;
+  }
+
+  .fusion-hero {
+    position: relative;
+    padding: 84px 24px 68px;
+    text-align: center;
+    background:
+      linear-gradient(180deg, rgba(15,118,110,0.06), rgba(15,118,110,0.01)),
+      linear-gradient(135deg, #ffffff 0%, #f9fbfc 100%);
+    border-bottom: 1px solid var(--fusion-line);
+  }
+
+  .fusion-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 14px;
+    border: 1px solid rgba(15, 118, 110, 0.18);
+    background: rgba(15, 118, 110, 0.06);
+    color: var(--fusion-teal-dark);
+    border-radius: 999px;
+    font-size: 0.84rem;
+    letter-spacing: 0.08em;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+  }
+
+  .fusion-hero h1 {
+    margin: 0;
+    font-size: clamp(2.5rem, 5vw, 4.9rem);
+    line-height: 1.02;
+    font-weight: 900;
+    letter-spacing: -0.05em;
+  }
+
+  .fusion-hero h2 {
+    margin: 18px auto 0;
+    max-width: 980px;
+    font-size: clamp(1.2rem, 2.6vw, 2.1rem);
+    line-height: 1.3;
+    font-weight: 650;
+    color: var(--fusion-teal-dark);
+  }
+
+  .fusion-hero p,
+  .fusion-lead {
+    color: var(--fusion-muted);
+    line-height: 1.9;
+  }
+
+  .fusion-hero p {
+    margin: 22px auto 0;
+    max-width: 900px;
+    font-size: 1.06rem;
+  }
+
+  .fusion-actions {
+    margin-top: 32px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .fusion-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 18px;
+    border-radius: 999px;
+    font-weight: 800;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    border: 1px solid transparent;
+  }
+
+  .fusion-btn:hover {
+    transform: translateY(-1px);
+  }
+
+  .fusion-btn.primary {
+    background: linear-gradient(135deg, var(--fusion-teal), var(--fusion-teal-dark));
+    color: #fff;
+    box-shadow: 0 12px 24px rgba(15, 118, 110, 0.22);
+  }
+
+  .fusion-btn.secondary {
+    background: #fff;
+    color: var(--fusion-teal-dark);
+    border-color: rgba(15, 118, 110, 0.18);
+  }
+
+  .fusion-metrics {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1px;
+    background: var(--fusion-line);
+    border-top: 1px solid var(--fusion-line);
+    border-bottom: 1px solid var(--fusion-line);
+  }
+
+  .fusion-metric {
+    background: rgba(255,255,255,0.96);
+    padding: 30px 16px;
+    text-align: center;
+  }
+
+  .fusion-metric .value {
+    display: block;
+    font-size: clamp(1.8rem, 3vw, 2.7rem);
+    line-height: 1;
+    font-weight: 900;
+    color: var(--fusion-gold);
+    letter-spacing: -0.03em;
+  }
+
+  .fusion-metric .label {
+    display: block;
+    margin-top: 8px;
+    font-size: 0.78rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--fusion-muted);
+    font-weight: 800;
+  }
+
+  .fusion-section {
+    padding: 82px 24px;
+  }
+
+  .fusion-section .inner {
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+
+  .fusion-section h3 {
+    margin: 0;
+    font-size: clamp(1.8rem, 3vw, 3rem);
+    line-height: 1.1;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+  }
+
+  .fusion-lead {
+    max-width: 820px;
+    margin-top: 16px;
+    font-size: 1.06rem;
+  }
+
+  .theme-grid {
+    margin-top: 34px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+  }
+
+  .theme-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    background: var(--fusion-card);
+    border: 1px solid var(--fusion-line);
+    border-radius: 24px;
+    padding: 26px;
+    box-shadow: var(--fusion-shadow);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .theme-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 24px 60px rgba(16, 32, 51, 0.14);
+  }
+
+  .theme-card .tag {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 16px;
+    padding: 7px 12px;
+    border-radius: 999px;
+    background: rgba(15, 118, 110, 0.08);
+    color: var(--fusion-teal-dark);
+    font-size: 0.8rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .theme-card h4 {
+    margin: 0 0 10px;
+    font-size: 1.08rem;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    color: var(--fusion-ink);
+  }
+
+  .theme-card p {
+    margin: 0;
+    color: var(--fusion-muted);
+    line-height: 1.8;
+  }
+
+  .theme-card.wide {
+    grid-column: 1 / -1;
+  }
+
+  .fusion-research-direction {
+    background: var(--fusion-card);
+    border: 1px solid var(--fusion-line);
+    border-radius: 24px;
+    padding: 28px;
+    box-shadow: var(--fusion-shadow);
+  }
+
+  @media (max-width: 980px) {
+    .fusion-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .theme-grid { grid-template-columns: 1fr; }
+    .theme-card.wide { grid-column: auto; }
+    .fusion-hero { padding: 72px 18px 60px; }
+    .fusion-section { padding: 64px 18px; }
+  }
+
+  @media (max-width: 560px) {
+    .fusion-metrics { grid-template-columns: 1fr; }
+    .fusion-hero p,
+    .fusion-lead,
+    .theme-card p {
+      font-size: 1rem;
+    }
+  }
+</style>
+
+<div class="fusion-home">
+  <section class="fusion-hero">
+    <div class="fusion-kicker">Research Overview</div>
+    <h1>Research</h1>
+    <h2>Forecasting, Data Analytics, Modelling and Simulation, Intelligent Optimization, and Decision Support Systems</h2>
+    <p>
+      My research focuses on methods for complex industrial and engineering problems, with an emphasis on predictive modeling, exploratory analysis, simulation-based experimentation, and optimization for decision support.
+    </p>
+
+    <div class="fusion-actions">
+      <a class="fusion-btn primary" href="/projects/">Projects</a>
+      <a class="fusion-btn secondary" href="/publications/">Publications</a>
+      <a class="fusion-btn secondary" href="/cv/">Download CV</a>
+      <a class="fusion-btn secondary" href="/contact/">Contact</a>
+    </div>
+  </section>
+
+  <section class="fusion-metrics" aria-label="Highlights">
+    <div class="fusion-metric"><span class="value">5</span><span class="label">Research Themes</span></div>
+    <div class="fusion-metric"><span class="value">EDA</span><span class="label">Energy Insight</span></div>
+    <div class="fusion-metric"><span class="value">LSTM</span><span class="label">Forecasting Engine</span></div>
+    <div class="fusion-metric"><span class="value">DSS</span><span class="label">Decision Support</span></div>
+  </section>
+
+  <section class="fusion-section">
+    <div class="inner">
+      <h3>Research Themes</h3>
+      <p class="fusion-lead">
+        Each theme connects to a detailed page so the research structure is easy to navigate and consistent across the site.
+      </p>
+
+      <div class="theme-grid">
+        <a class="theme-card" href="/forecasting/">
+          <span class="tag">Theme 1</span>
+          <h4>Forecasting</h4>
+          <p>Predict future behavior using historical data, statistical methods, and machine learning.</p>
+        </a>
+
+        <a class="theme-card" href="/analytics/">
+          <span class="tag">Theme 2</span>
+          <h4>Data Analytics</h4>
+          <p>Discover patterns, diagnose structure, and support evidence-based decisions with visual and statistical analysis.</p>
+        </a>
+
+        <a class="theme-card" href="/simulation/">
+          <span class="tag">Theme 3</span>
+          <h4>Modelling and Simulation</h4>
+          <p>Represent real systems computationally and test alternative scenarios before applying actions in practice.</p>
+        </a>
+
+        <a class="theme-card" href="/optimization/">
+          <span class="tag">Theme 4</span>
+          <h4>Intelligent Optimization</h4>
+          <p>Find the best decisions under constraints using mathematical programming and computational intelligence.</p>
+        </a>
+
+        <a class="theme-card wide" href="/decision-support/">
+          <span class="tag">Theme 5</span>
+          <h4>Decision Support Systems</h4>
+          <p>
+            Integrate forecasting, analytics, simulation, and optimization into practical tools that improve decision quality, consistency, and responsiveness in uncertain environments.
+          </p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="fusion-section" style="padding-top:0;">
+    <div class="inner">
+      <div class="fusion-research-direction">
+        <h3>Research Direction</h3>
+        <p class="fusion-lead" style="margin-bottom:0;">
+          My work integrates predictive methods, analytical insight, simulation-based experimentation, and optimization techniques into a unified framework for intelligent decision support. The goal is to improve the quality, speed, and reliability of decisions in uncertain and dynamic environments.
+        </p>
+      </div>
+    </div>
+  </section>
+</div>

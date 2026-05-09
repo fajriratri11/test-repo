@@ -1,0 +1,597 @@
+---
+layout: page
+title: Projects
+permalink: /projects/
+---
+
+<style>
+  :root {
+    --fusion-ink: #102033;
+    --fusion-muted: #5f6d7d;
+    --fusion-line: rgba(16, 32, 51, 0.10);
+    --fusion-bg: #f6f8fb;
+    --fusion-card: rgba(255, 255, 255, 0.92);
+    --fusion-teal: #0f766e;
+    --fusion-teal-dark: #0b5d57;
+    --fusion-gold: #c79a3b;
+    --fusion-soft: #e8f3f1;
+    --fusion-shadow: 0 20px 50px rgba(16, 32, 51, 0.08);
+  }
+
+  .fusion-home {
+    color: var(--fusion-ink);
+    background:
+      radial-gradient(circle at top left, rgba(15, 118, 110, 0.10), transparent 30%),
+      radial-gradient(circle at top right, rgba(199, 154, 59, 0.10), transparent 26%),
+      linear-gradient(180deg, #ffffff 0%, var(--fusion-bg) 100%);
+    border-radius: 30px;
+    overflow: hidden;
+  }
+
+  .fusion-hero {
+    position: relative;
+    padding: 84px 24px 68px;
+    text-align: center;
+    background:
+      linear-gradient(180deg, rgba(15,118,110,0.06), rgba(15,118,110,0.01)),
+      linear-gradient(135deg, #ffffff 0%, #f9fbfc 100%);
+    border-bottom: 1px solid var(--fusion-line);
+  }
+
+  .fusion-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 14px;
+    border: 1px solid rgba(15, 118, 110, 0.18);
+    background: rgba(15, 118, 110, 0.06);
+    color: var(--fusion-teal-dark);
+    border-radius: 999px;
+    font-size: 0.84rem;
+    letter-spacing: 0.08em;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+  }
+
+  .fusion-hero h1 {
+    margin: 0;
+    font-size: clamp(2.5rem, 5vw, 4.9rem);
+    line-height: 1.02;
+    font-weight: 900;
+    letter-spacing: -0.05em;
+  }
+
+  .fusion-hero h2 {
+    margin: 18px auto 0;
+    max-width: 980px;
+    font-size: clamp(1.2rem, 2.6vw, 2.1rem);
+    line-height: 1.3;
+    font-weight: 650;
+    color: var(--fusion-teal-dark);
+  }
+
+  .fusion-hero p {
+    margin: 22px auto 0;
+    max-width: 900px;
+    font-size: 1.06rem;
+    line-height: 1.9;
+    color: var(--fusion-muted);
+  }
+
+  .fusion-actions {
+    margin-top: 32px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .fusion-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 18px;
+    border-radius: 999px;
+    font-weight: 800;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    border: 1px solid transparent;
+  }
+
+  .fusion-btn:hover { transform: translateY(-1px); }
+
+  .fusion-btn.primary {
+    background: linear-gradient(135deg, var(--fusion-teal), var(--fusion-teal-dark));
+    color: #fff;
+    box-shadow: 0 12px 24px rgba(15, 118, 110, 0.22);
+  }
+
+  .fusion-btn.secondary {
+    background: #fff;
+    color: var(--fusion-teal-dark);
+    border-color: rgba(15, 118, 110, 0.18);
+  }
+
+  .fusion-metrics {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1px;
+    background: var(--fusion-line);
+    border-top: 1px solid var(--fusion-line);
+    border-bottom: 1px solid var(--fusion-line);
+  }
+
+  .fusion-metric {
+    background: rgba(255,255,255,0.96);
+    padding: 30px 16px;
+    text-align: center;
+  }
+
+  .fusion-metric .value {
+    display: block;
+    font-size: clamp(1.8rem, 3vw, 2.7rem);
+    line-height: 1;
+    font-weight: 900;
+    color: var(--fusion-gold);
+    letter-spacing: -0.03em;
+  }
+
+  .fusion-metric .label {
+    display: block;
+    margin-top: 8px;
+    font-size: 0.78rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--fusion-muted);
+    font-weight: 800;
+  }
+
+  .fusion-section {
+    padding: 82px 24px;
+  }
+
+  .fusion-section .inner {
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+
+  .fusion-section h3 {
+    margin: 0;
+    font-size: clamp(1.8rem, 3vw, 3rem);
+    line-height: 1.1;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+  }
+
+  .fusion-lead {
+    max-width: 760px;
+    margin-top: 16px;
+    color: var(--fusion-muted);
+    font-size: 1.06rem;
+    line-height: 1.9;
+  }
+
+  .fusion-grid {
+    margin-top: 38px;
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 22px;
+  }
+
+  .fusion-card {
+    grid-column: span 6;
+    background: var(--fusion-card);
+    border: 1px solid var(--fusion-line);
+    border-radius: 24px;
+    padding: 26px;
+    box-shadow: var(--fusion-shadow);
+    backdrop-filter: blur(8px);
+  }
+
+  .fusion-card h4 {
+    margin: 0 0 10px;
+    font-size: 1.08rem;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+  }
+
+  .fusion-card p {
+    margin: 0;
+    color: var(--fusion-muted);
+    line-height: 1.8;
+  }
+
+  .fusion-card .tag {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 16px;
+    padding: 7px 12px;
+    border-radius: 999px;
+    background: rgba(15, 118, 110, 0.08);
+    color: var(--fusion-teal-dark);
+    font-size: 0.8rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .fusion-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 18px;
+    margin-top: 18px;
+    border: 1px solid rgba(16, 32, 51, 0.08);
+    background: #fff;
+  }
+
+  .fusion-wide {
+    grid-column: span 12;
+  }
+
+  .fusion-list {
+    margin: 18px 0 0;
+    padding-left: 18px;
+    color: var(--fusion-muted);
+    line-height: 1.9;
+  }
+
+  .fusion-story {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 22px;
+    margin-top: 36px;
+  }
+
+  .fusion-story-block {
+    grid-column: span 4;
+    background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(248,250,252,0.96));
+    border: 1px solid var(--fusion-line);
+    border-radius: 24px;
+    padding: 24px;
+    box-shadow: var(--fusion-shadow);
+  }
+
+  .fusion-story-block .num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: rgba(15, 118, 110, 0.10);
+    color: var(--fusion-teal-dark);
+    font-weight: 900;
+    margin-bottom: 14px;
+  }
+
+  .fusion-story-block h4 {
+    margin: 0 0 10px;
+    font-size: 1.05rem;
+    font-weight: 900;
+  }
+
+  .fusion-story-block p {
+    margin: 0;
+    color: var(--fusion-muted);
+    line-height: 1.85;
+  }
+
+  .fusion-timeline {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 22px;
+    margin-top: 36px;
+  }
+
+  .fusion-card-link {
+    grid-column: span 6;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+
+  .fusion-card-link:hover .fusion-timeline-item {
+    transform: translateY(-4px);
+    box-shadow: 0 24px 60px rgba(16, 32, 51, 0.14);
+  }
+
+  .fusion-timeline-item {
+    height: 100%;
+    background: var(--fusion-card);
+    border: 1px solid var(--fusion-line);
+    border-radius: 24px;
+    padding: 24px;
+    box-shadow: var(--fusion-shadow);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .fusion-timeline-item .year {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: rgba(199, 154, 59, 0.12);
+    color: var(--fusion-gold);
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    font-size: 0.82rem;
+  }
+
+  .fusion-timeline-item h4 {
+    margin: 14px 0 10px;
+    font-size: 1.18rem;
+    font-weight: 900;
+  }
+
+  .fusion-timeline-item p {
+    margin: 0;
+    color: var(--fusion-muted);
+    line-height: 1.85;
+  }
+
+  .fusion-timeline-item img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 18px;
+    margin-top: 16px;
+    border: 1px solid rgba(16, 32, 51, 0.08);
+    background: #fff;
+  }
+
+  .fusion-badges {
+    margin-top: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .fusion-badge {
+    display: inline-flex;
+    padding: 7px 11px;
+    border-radius: 999px;
+    background: rgba(15, 118, 110, 0.08);
+    color: var(--fusion-teal-dark);
+    font-size: 0.82rem;
+    font-weight: 800;
+  }
+
+  .fusion-note {
+    margin-top: 14px;
+    font-size: 0.95rem;
+    color: var(--fusion-muted);
+  }
+
+  @media (max-width: 980px) {
+    .fusion-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .fusion-card, .fusion-story-block, .fusion-card-link, .fusion-wide { grid-column: span 12; }
+    .fusion-hero { padding: 72px 18px 60px; }
+    .fusion-section { padding: 64px 18px; }
+  }
+
+  @media (max-width: 560px) {
+    .fusion-metrics { grid-template-columns: 1fr; }
+    .fusion-hero p, .fusion-lead, .fusion-card p, .fusion-story-block p, .fusion-timeline-item p { font-size: 1rem; }
+  }
+</style>
+
+<div class="fusion-home">
+  <section class="fusion-hero">
+    <div class="fusion-kicker">FUSION-AI Projects</div>
+    <h1>Projects</h1>
+    <h2>Forecasting, Analytics, Simulation, and Optimization for Intelligent Decision Support</h2>
+    <p>
+      This page presents my current and previous research projects, organized to show how each work contributes to the same broader decision-support agenda in energy systems and business processes.
+    </p>
+
+    <div class="fusion-actions">
+      <a class="fusion-btn primary" href="/research">Research</a>
+      <a class="fusion-btn secondary" href="/publications">Publications</a>
+      <a class="fusion-btn secondary" href="/cv">Download CV</a>
+      <a class="fusion-btn secondary" href="/contact">Contact</a>
+    </div>
+  </section>
+
+  <section class="fusion-metrics" aria-label="Highlights">
+    <div class="fusion-metric"><span class="value">4</span><span class="label">Core Themes</span></div>
+    <div class="fusion-metric"><span class="value">EDA</span><span class="label">Energy Insight</span></div>
+    <div class="fusion-metric"><span class="value">LSTM</span><span class="label">Forecasting Engine</span></div>
+    <div class="fusion-metric"><span class="value">DSS</span><span class="label">Decision Support</span></div>
+  </section>
+
+  <section class="fusion-section">
+    <div class="inner">
+      <h3>Project Story</h3>
+      <p class="fusion-lead">
+        My work follows a pipeline: first understand the system, then test it under uncertainty, and finally choose the best action.
+        The paper on renewable energy and electricity demand shows why this matters: exploratory diagnostics and STL decomposition reveal temporal structure across nine energy datasets, while time-respecting splits and expanding-window validation support robust LSTM forecasting.
+      </p>
+
+      <div class="fusion-story">
+        <article class="fusion-story-block">
+          <span class="num">1</span>
+          <h4>Sense the System</h4>
+          <p>
+            Forecasting and analytics reveal demand patterns, seasonal cycles, missingness, and anomalies so that the system can be understood before any decision is made.
+          </p>
+        </article>
+
+        <article class="fusion-story-block">
+          <span class="num">2</span>
+          <h4>Test Scenarios</h4>
+          <p>
+            Simulation and time-series decomposition make it possible to study alternative futures, compare regimes, and evaluate risk without disrupting the real system.
+          </p>
+        </article>
+
+        <article class="fusion-story-block">
+          <span class="num">3</span>
+          <h4>Choose the Best Action</h4>
+          <p>
+            Optimization and intelligent decision support convert insight into action, helping select robust strategies under uncertainty and operational constraints.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="fusion-section" style="padding-top: 0;">
+    <div class="inner">
+      <h3>Related Research Areas</h3>
+      <p class="fusion-lead">
+        Explore the detailed pages that support the project portfolio.
+      </p>
+
+      <div class="fusion-actions" style="justify-content:flex-start;">
+        <a class="fusion-btn primary" href="/analytics/">Data Analytics</a>
+        <a class="fusion-btn secondary" href="/forecasting/">Forecasting</a>
+        <a class="fusion-btn secondary" href="/simulation/">Simulation</a>
+        <a class="fusion-btn secondary" href="/optimization/">Optimization</a>
+        <a class="fusion-btn secondary" href="/decision-support/">Decision Support</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="fusion-section" style="padding-top:0;">
+    <div class="inner">
+      <h3>Selected Projects</h3>
+      <p class="fusion-lead">
+        A cleaner portfolio should show the reader exactly what you are working on now, how it evolved, and how each project connects to the same research agenda.
+      </p>
+
+      <div class="fusion-timeline">
+        <a href="/analytics/" class="fusion-card-link">
+          <article class="fusion-timeline-item">
+            <span class="year">2024–2027</span>
+            <h4>Exploratory Data Analysis for Renewable Solar, Wind, and Electricity Demand</h4>
+            <p>
+              This project studies renewable generation and load behavior across heterogeneous energy datasets using exploratory diagnostics,
+              seasonal decomposition, stationarity checks, and visual analytics. The strongest representative visual for this project is the
+              energy workflow or seasonal-component figure from the paper, because it directly shows the EDA-to-forecasting pipeline. The paper’s core contribution is a unified benchmarking workflow across nine datasets, combining EDA, STL decomposition, and LSTM evaluation.
+            </p>
+            <div class="fusion-badges">
+              <span class="fusion-badge">EDA</span>
+              <span class="fusion-badge">Solar</span>
+              <span class="fusion-badge">Wind</span>
+              <span class="fusion-badge">Demand</span>
+            </div>
+            <img src="/assets/img/fusion-energy-eda.jpg" alt="Energy exploratory data analysis and seasonal decomposition visual">
+          </article>
+        </a>
+
+        <a href="/forecasting/" class="fusion-card-link">
+          <article class="fusion-timeline-item">
+            <span class="year">2024–2027</span>
+            <h4>Forecasting Techniques for Growing Demand and Scalable Time-Series Methods</h4>
+            <p>
+              This project focuses on short-term and scalable forecasting with time-aware validation, lookback tuning, and robust normalization.
+              The paper emphasizes that hourly forecasting with LSTM, combined with expanding-window cross-validation, is well-suited for energy time series with nonlinear dynamics and multi-scale dependence.
+            </p>
+            <div class="fusion-badges">
+              <span class="fusion-badge">Forecasting</span>
+              <span class="fusion-badge">LSTM</span>
+              <span class="fusion-badge">CV</span>
+              <span class="fusion-badge">Scalable</span>
+            </div>
+            <img src="/assets/img/fusion-forecasting.jpg" alt="Forecasting and validation workflow visual">
+          </article>
+        </a>
+
+        <a href="/optimization/" class="fusion-card-link">
+          <article class="fusion-timeline-item">
+            <span class="year">2024–2027</span>
+            <h4>Stochastic Process Modelling for Generator Expansion Problem</h4>
+            <p>
+              This project treats generator expansion as a decision-making problem under uncertainty, where stochastic processes are used to model demand variability, operational risk, and investment timing. It connects naturally to optimization and intelligent decision support by turning uncertain future conditions into structured planning decisions.
+            </p>
+            <div class="fusion-badges">
+              <span class="fusion-badge">Stochastic</span>
+              <span class="fusion-badge">Expansion Planning</span>
+              <span class="fusion-badge">Optimization</span>
+            </div>
+            <img src="/assets/img/fusion-optimization.jpg" alt="Optimization and decision-making visual">
+          </article>
+        </a>
+
+        <a href="/decision-support/" class="fusion-card-link">
+          <article class="fusion-timeline-item">
+            <span class="year">2021–2022</span>
+            <h4>Decision Support System for Business Processes in Small and Medium Enterprises</h4>
+            <p>
+              This earlier project establishes the foundation for the current research direction: building practical decision-support tools for real business processes. A representative image for this section is a clean workflow diagram that communicates system design, usability, and business process improvement.
+            </p>
+            <div class="fusion-badges">
+              <span class="fusion-badge">DSS</span>
+              <span class="fusion-badge">SMEs</span>
+              <span class="fusion-badge">Usability</span>
+            </div>
+            <img src="/assets/img/fusion-dss.jpg" alt="Decision support system visual">
+          </article>
+        </a>
+      </div>
+
+      <div class="fusion-grid" style="margin-top:34px;">
+        <article class="fusion-card">
+          <span class="tag">Lab Environment</span>
+          <h4>Where Ideas Become Experiments</h4>
+          <p>
+            A computing-lab image works well as a supporting visual because it tells the reader that the work is not only conceptual but also computational and reproducible.
+          </p>
+          <img src="/assets/img/fusion-lab.jpg" alt="Computing lab image">
+        </article>
+
+        <article class="fusion-card">
+          <span class="tag">Campus Context</span>
+          <h4>Grounding the Work in KFUPM</h4>
+          <p>
+            The university image gives institutional credibility and provides a clean visual anchor for the academic identity of the page.
+          </p>
+          <img src="/assets/img/fusion-campus.jpg" alt="University campus image">
+        </article>
+
+        <article class="fusion-card">
+          <span class="tag">AI + Analytics</span>
+          <h4>Human Decision-Making Enhanced by Data</h4>
+          <p>
+            This visual is useful for the broader message of intelligent decision support, where machine learning and analytics help produce better recommendations.
+          </p>
+          <img src="/assets/img/fusion-ai.jpg" alt="Artificial intelligence and analytics visualization">
+        </article>
+
+        <article class="fusion-card">
+          <span class="tag">Integrated Pipeline</span>
+          <h4>One Story, One Research Direction</h4>
+          <p>
+            For the strongest impact, the fifth visual should be the integrated EDA or seasonal-decomposition figure from the paper, because it captures the whole workflow in a single image. Figures on seasonal identification, box plots, and cross-validation from the paper are especially suitable here.
+          </p>
+          <img src="/assets/img/fusion-decision-support.jpg" alt="Integrated decision support visual">
+        </article>
+
+        <article class="fusion-card fusion-wide">
+          <span class="tag">Research Direction</span>
+          <h4>From Forecasting to Intelligent Decision Support</h4>
+          <p>
+            My research combines predictive modeling, scenario analysis, and optimization into a single decision framework. I aim to create methods that are interpretable, reliable, and useful in industrial and engineering settings. The current paper’s empirical findings support this direction: solar follows a strong daily cycle, wind is more erratic and seasonal, and demand shows weekday/weekend plus climate-driven variation, which justifies a unified decision-support approach.
+          </p>
+          <ul class="fusion-list">
+            <li>Forecasting and predictive analytics</li>
+            <li>Simulation modeling and scenario analysis</li>
+            <li>Optimization and operations research</li>
+            <li>Intelligent and data-driven decision systems</li>
+          </ul>
+          <div class="fusion-actions" style="justify-content:flex-start; margin-top:22px;">
+            <a class="fusion-btn primary" href="/research">Research</a>
+            <a class="fusion-btn secondary" href="/cv">CV</a>
+            <a class="fusion-btn secondary" href="/contact">Contact</a>
+          </div>
+          <div class="fusion-note">
+            Recommended image set for the projects page: <strong>fusion-energy-eda.jpg</strong>, <strong>fusion-forecasting.jpg</strong>, <strong>fusion-optimization.jpg</strong>, <strong>fusion-dss.jpg</strong>, <strong>fusion-ai.jpg</strong>, <strong>fusion-campus.jpg</strong>, and <strong>fusion-lab.jpg</strong> inside <strong>/assets/img/</strong>.
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+</div>

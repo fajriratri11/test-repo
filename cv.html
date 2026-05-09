@@ -1,0 +1,329 @@
+---
+layout: page
+title: CV
+permalink: /cv/
+---
+
+<style>
+  :root {
+    --cv-ink: #102033;
+    --cv-muted: #5b6777;
+    --cv-line: rgba(16, 32, 51, 0.12);
+    --cv-green: #0f7a5b;
+    --cv-green-dark: #0b5d45;
+    --cv-soft: #f7fbf9;
+    --cv-card: #ffffff;
+    --cv-shadow: 0 18px 45px rgba(16, 32, 51, 0.08);
+  }
+
+  .cv-page {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 24px 18px 56px;
+    color: var(--cv-ink);
+    background: linear-gradient(180deg, #ffffff 0%, var(--cv-soft) 100%);
+    border-radius: 26px;
+  }
+
+  .cv-header {
+    display: grid;
+    grid-template-columns: 1.5fr 0.75fr;
+    gap: 28px;
+    align-items: start;
+    padding: 10px 0 26px;
+    border-bottom: 1px solid var(--cv-line);
+  }
+
+  .cv-name {
+    font-size: clamp(2.1rem, 4vw, 3.5rem);
+    line-height: 1.02;
+    font-weight: 900;
+    margin: 0 0 10px;
+    color: var(--cv-green);
+    letter-spacing: -0.04em;
+  }
+
+  .cv-role {
+    font-size: clamp(1rem, 1.7vw, 1.25rem);
+    font-weight: 700;
+    color: var(--cv-ink);
+    margin: 0 0 18px;
+  }
+
+  .cv-meta {
+    margin: 0;
+    padding-left: 18px;
+    line-height: 1.9;
+    color: var(--cv-muted);
+  }
+
+  .cv-meta a {
+    color: var(--cv-green-dark);
+    text-decoration: none;
+  }
+
+  .cv-meta a:hover {
+    text-decoration: underline;
+  }
+
+  .cv-photo-wrap {
+    text-align: center;
+  }
+
+  .cv-photo {
+    width: 100%;
+    max-width: 300px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 18px;
+    border: 1px solid var(--cv-line);
+    box-shadow: var(--cv-shadow);
+    background: #fff;
+  }
+
+  .cv-photo-caption {
+    margin-top: 12px;
+    text-align: left;
+    max-width: 300px;
+  }
+
+  .cv-photo-caption h2 {
+    margin: 0 0 4px;
+    font-size: 1.15rem;
+    color: var(--cv-green);
+  }
+
+  .cv-photo-caption p {
+    margin: 0;
+    color: var(--cv-muted);
+  }
+
+  .cv-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+    margin-top: 28px;
+  }
+
+  .cv-section {
+    background: var(--cv-card);
+    border: 1px solid var(--cv-line);
+    border-radius: 22px;
+    padding: 22px 22px 18px;
+    box-shadow: var(--cv-shadow);
+  }
+
+  .cv-section h3 {
+    margin: 0 0 14px;
+    font-size: 1.35rem;
+    color: var(--cv-green);
+    font-weight: 900;
+    letter-spacing: -0.02em;
+  }
+
+  .cv-section ul,
+  .cv-section ol {
+    margin: 0;
+    padding-left: 20px;
+    line-height: 1.9;
+    color: var(--cv-muted);
+  }
+
+  .cv-section p {
+    margin: 0;
+    line-height: 1.9;
+    color: var(--cv-muted);
+  }
+
+  .cv-publications li {
+    margin-bottom: 10px;
+  }
+
+  .cv-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 14px;
+  }
+
+  .cv-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: rgba(15, 122, 91, 0.09);
+    color: var(--cv-green-dark);
+    font-size: 0.88rem;
+    font-weight: 800;
+  }
+
+  .cv-note {
+    margin-top: 14px;
+    font-size: 0.95rem;
+    color: var(--cv-muted);
+  }
+
+  .cv-download {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 14px;
+    padding: 11px 16px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--cv-green), var(--cv-green-dark));
+    color: #fff;
+    text-decoration: none;
+    font-weight: 800;
+    box-shadow: 0 12px 24px rgba(15, 122, 91, 0.20);
+  }
+
+  .cv-download:hover {
+    text-decoration: none;
+    color: #fff;
+  }
+
+  .cv-quicklinks {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .cv-quicklink {
+    display: inline-flex;
+    align-items: center;
+    padding: 7px 11px;
+    border-radius: 999px;
+    background: rgba(15, 122, 91, 0.08);
+    color: var(--cv-green-dark);
+    font-size: 0.84rem;
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  .cv-quicklink:hover {
+    text-decoration: none;
+    background: rgba(15, 122, 91, 0.12);
+  }
+
+  @media (max-width: 900px) {
+    .cv-header {
+      grid-template-columns: 1fr;
+    }
+
+    .cv-photo-wrap {
+      text-align: left;
+    }
+
+    .cv-photo-caption {
+      max-width: none;
+    }
+  }
+</style>
+
+<div class="cv-page">
+  <section class="cv-header">
+    <div>
+      <h1 class="cv-name">M Fahrudin Muna</h1>
+      <p class="cv-role">PhD Researcher, Industrial &amp; Systems Engineering</p>
+
+      <ul class="cv-meta">
+        <li>King Fahd University of Petroleum and Minerals, Dhahran, Saudi Arabia</li>
+        <li>Email: <a href="mailto:fahrudin.muna@mail.ugm.ac.id">fahrudin.muna@mail.ugm.ac.id</a> | <a href="mailto:g202203380@kfupm.edu.sa">g202203380@kfupm.edu.sa</a></li>
+        <li>Google Scholar: <a href="https://scholar.google.com/citations?hl=en&amp;view_op=list_works&amp;gmla=AIqSsVsxTXBGc-6pHqpK25J5JXi6i9_yOOh15OgIYaRQsyVm2q4A_OFDdHttVKR0Z0698t60AOgOO30dDHIzlQ&amp;user=lA-4Pa0AAAAJ" target="_blank" rel="noopener noreferrer">Profile</a></li>
+        <li>LinkedIn: <a href="https://www.linkedin.com/in/m-fahrudin-muna-34974275/" target="_blank" rel="noopener noreferrer">Profile</a></li>
+        <li>ResearchGate: <a href="https://www.researchgate.net/profile/M-Fahrudin-Muna-2" target="_blank" rel="noopener noreferrer">Profile</a></li>
+        <li>ORCID: <a href="https://orcid.org/0000-0002-8236-3520" target="_blank" rel="noopener noreferrer">0000-0002-8236-3520</a></li>
+      </ul>
+
+      <div class="cv-quicklinks" aria-label="Profile links">
+        <a class="cv-quicklink" href="https://scholar.google.com/citations?hl=en&amp;view_op=list_works&amp;gmla=AIqSsVsxTXBGc-6pHqpK25J5JXi6i9_yOOh15OgIYaRQsyVm2q4A_OFDdHttVKR0Z0698t60AOgOO30dDHIzlQ&amp;user=lA-4Pa0AAAAJ" target="_blank" rel="noopener noreferrer">Scholar</a>
+        <a class="cv-quicklink" href="https://www.linkedin.com/in/m-fahrudin-muna-34974275/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a class="cv-quicklink" href="https://www.researchgate.net/profile/M-Fahrudin-Muna-2" target="_blank" rel="noopener noreferrer">ResearchGate</a>
+        <a class="cv-quicklink" href="https://orcid.org/0000-0002-8236-3520" target="_blank" rel="noopener noreferrer">ORCID</a>
+      </div>
+
+      <a class="cv-download" href="/assets/files/M_Fahrudin_Muna_CV.pdf">Download CV PDF</a>
+    </div>
+
+    <div class="cv-photo-wrap">
+      <img class="cv-photo" src="/assets/img/profile.jpg" alt="M Fahrudin Muna portrait">
+      <div class="cv-photo-caption">
+        <h2>M Fahrudin Muna</h2>
+        <p>PhD Researcher</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="cv-content">
+    <section class="cv-section">
+      <h3>Research Interests</h3>
+      <ul>
+        <li>Forecasting and predictive analytics</li>
+        <li>Data analytics for energy and industrial systems</li>
+        <li>Modelling and simulation</li>
+        <li>Intelligent optimization</li>
+        <li>Decision support systems</li>
+      </ul>
+      <div class="cv-badges">
+        <span class="cv-badge">Forecasting</span>
+        <span class="cv-badge">Analytics</span>
+        <span class="cv-badge">Simulation</span>
+        <span class="cv-badge">Optimization</span>
+        <span class="cv-badge">Decision Support</span>
+      </div>
+    </section>
+
+    <section class="cv-section">
+      <h3>Teaching</h3>
+      <p><strong>Teaching focus:</strong> Data Science</p>
+      <p style="margin-top:10px;"><strong>Assistant Teaching:</strong></p>
+      <ul>
+        <li>Engineering Economic Analysis</li>
+        <li>Engineering Statistics</li>
+        <li>Production Systems and Inventory Control</li>
+        <li>Human Factors Engineering</li>
+      </ul>
+    </section>
+
+    <section class="cv-section">
+      <h3>Education</h3>
+      <ul>
+        <li><strong>PhD</strong>, Industrial &amp; Systems Engineering, King Fahd University of Petroleum and Minerals, Saudi Arabia</li>
+        <li><strong>MSc</strong>, Industrial &amp; Systems Engineering, Universitas Gadjah Mada (UGM)</li>
+        <li><strong>BEng</strong>, Physics Engineering, Universitas Gadjah Mada (UGM)</li>
+      </ul>
+    </section>
+
+    <section class="cv-section">
+      <h3>Selected Publications</h3>
+      <ol class="cv-publications">
+        <li><strong>Dynamic Characteristics of Renewable Energy Generation and Consumption Using LSTM Deep Learning Algorithm</strong> — MF Muna, AI Malik, MN Syed — <em>Results in Engineering</em>, 2026.</li>
+        <li><strong>A Survey of Sentiment Analysis in Halal Tourism Using Machine Learning and Lexicon Approaches for Extracting Sentiment Polarity</strong> — B Jan, A Hamid, MF Muna, H Aljamaaan — <em>Engineering Headway</em>, 2025.</li>
+        <li><strong>Usability Testing of Smart Inventory Software for EOQ, ROP and SS with Recommendation Decision in the Context of SMEs</strong> — MF Muna, F Trapsilawati, M Ushada, S Alsana — <em>AIP Conference Proceedings</em>, 2023.</li>
+        <li><strong>Pengembangan Dan Evaluasi Usabilitas Sistem Pendukung Keputusan Pada Proses Bisnis UMKM</strong> — MF Muna — <em>Universitas Gadjah Mada</em>, 2022.</li>
+        <li><strong>Stiction Compensation Using PI-Sliding Mode Control for Pneumatic Valve</strong> — S Elferik, MF Muna, TB Susilo, IH Imran — <em>IEEE 12th International Multi-Conference on Systems, Signals &amp; Devices</em>, 2015.</li>
+      </ol>
+      <div class="cv-note">These are arranged in the same style as your Google Scholar profile screenshot, from the most recent to earlier work.</div>
+    </section>
+
+    <section class="cv-section">
+      <h3>Experience</h3>
+      <ul>
+        <li>Research and teaching activities in industrial and systems engineering</li>
+        <li>Energy time-series analysis, forecasting, and exploratory data analysis</li>
+        <li>Decision support, optimization, and simulation-oriented research</li>
+      </ul>
+    </section>
+
+    <section class="cv-section">
+      <h3>Technical Skills</h3>
+      <ul>
+        <li>Python, MATLAB, R, SQL</li>
+        <li>Jupyter, Git, GitHub, Jekyll</li>
+        <li>Forecasting, EDA, STL decomposition, LSTM</li>
+        <li>Optimization modeling, simulation, data visualization</li>
+      </ul>
+    </section>
+  </div>
+</div>

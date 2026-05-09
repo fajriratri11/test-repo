@@ -9,17 +9,19 @@
 # --- Required options --- #
 
 # Name of website (shown in browser tab and header)
-title: "Your Name"
+title: "Fusion-AI"
 
 # Your name (shown in the footer)
-author: "Your Name"
+author: "M Fahrudin Muna"
 
 # --- Navigation bar links --- #
 # Add or remove pages from the top navigation bar here.
 
 navbar-links:
-  Home: "index"
-  About: "about"
+  Research: "research"
+  Projects: "projects"
+  Publications: "publications"
+  CV: "cv"
   Contact: "contact"
 
 # --- Logo / Avatar --- #

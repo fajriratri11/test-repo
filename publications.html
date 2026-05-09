@@ -1,0 +1,511 @@
+---
+layout: page
+title: Publications
+permalink: /publications/
+---
+
+<style>
+  :root {
+    --fusion-ink: #102033;
+    --fusion-muted: #5f6d7d;
+    --fusion-line: rgba(16, 32, 51, 0.10);
+    --fusion-bg: #f6f8fb;
+    --fusion-card: rgba(255, 255, 255, 0.96);
+    --fusion-teal: #0f766e;
+    --fusion-teal-dark: #0b5d57;
+    --fusion-gold: #c79a3b;
+    --fusion-shadow: 0 20px 50px rgba(16, 32, 51, 0.08);
+  }
+
+  .fusion-home {
+    color: var(--fusion-ink);
+    background:
+      radial-gradient(circle at top left, rgba(15, 118, 110, 0.10), transparent 30%),
+      radial-gradient(circle at top right, rgba(199, 154, 59, 0.10), transparent 26%),
+      linear-gradient(180deg, #ffffff 0%, var(--fusion-bg) 100%);
+    border-radius: 30px;
+    overflow: hidden;
+  }
+
+  .fusion-hero {
+    position: relative;
+    padding: 84px 24px 68px;
+    text-align: center;
+    background:
+      linear-gradient(180deg, rgba(15,118,110,0.06), rgba(15,118,110,0.01)),
+      linear-gradient(135deg, #ffffff 0%, #f9fbfc 100%);
+    border-bottom: 1px solid var(--fusion-line);
+  }
+
+  .fusion-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 14px;
+    border: 1px solid rgba(15, 118, 110, 0.18);
+    background: rgba(15, 118, 110, 0.06);
+    color: var(--fusion-teal-dark);
+    border-radius: 999px;
+    font-size: 0.84rem;
+    letter-spacing: 0.08em;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+  }
+
+  .fusion-hero h1 {
+    margin: 0;
+    font-size: clamp(2.5rem, 5vw, 4.9rem);
+    line-height: 1.02;
+    font-weight: 900;
+    letter-spacing: -0.05em;
+  }
+
+  .fusion-hero h2 {
+    margin: 18px auto 0;
+    max-width: 980px;
+    font-size: clamp(1.2rem, 2.6vw, 2.05rem);
+    line-height: 1.3;
+    font-weight: 650;
+    color: var(--fusion-teal-dark);
+  }
+
+  .fusion-hero p,
+  .fusion-lead,
+  .pub-card p,
+  .pub-meta,
+  .pub-abstract {
+    color: var(--fusion-muted);
+    line-height: 1.9;
+  }
+
+  .fusion-hero p {
+    margin: 22px auto 0;
+    max-width: 900px;
+    font-size: 1.06rem;
+  }
+
+  .fusion-actions {
+    margin-top: 32px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .fusion-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 18px;
+    border-radius: 999px;
+    font-weight: 800;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    border: 1px solid transparent;
+  }
+
+  .fusion-btn:hover {
+    transform: translateY(-1px);
+  }
+
+  .fusion-btn.primary {
+    background: linear-gradient(135deg, var(--fusion-teal), var(--fusion-teal-dark));
+    color: #fff;
+    box-shadow: 0 12px 24px rgba(15, 118, 110, 0.22);
+  }
+
+  .fusion-btn.secondary {
+    background: #fff;
+    color: var(--fusion-teal-dark);
+    border-color: rgba(15, 118, 110, 0.18);
+  }
+
+  .fusion-section {
+    padding: 82px 24px;
+  }
+
+  .fusion-section .inner {
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+
+  .fusion-section h3 {
+    margin: 0;
+    font-size: clamp(1.8rem, 3vw, 3rem);
+    line-height: 1.1;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+  }
+
+  .fusion-lead {
+    max-width: 840px;
+    margin-top: 16px;
+    font-size: 1.06rem;
+  }
+
+  .theme-grid {
+    margin-top: 34px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .theme-chip {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    background: var(--fusion-card);
+    border: 1px solid var(--fusion-line);
+    border-radius: 20px;
+    padding: 18px 20px;
+    box-shadow: var(--fusion-shadow);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .theme-chip:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 24px 60px rgba(16, 32, 51, 0.14);
+  }
+
+  .theme-chip strong {
+    display: block;
+    color: var(--fusion-ink);
+    font-size: 1rem;
+    margin-bottom: 6px;
+  }
+
+  .theme-chip span {
+    display: block;
+    color: var(--fusion-muted);
+    font-size: 0.96rem;
+    line-height: 1.7;
+  }
+
+  .pub-list {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 22px;
+    margin-top: 34px;
+  }
+
+  .pub-card {
+    grid-column: span 12;
+    background: var(--fusion-card);
+    border: 1px solid var(--fusion-line);
+    border-radius: 24px;
+    padding: 26px;
+    box-shadow: var(--fusion-shadow);
+  }
+
+  .pub-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .pub-index {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 42px;
+    height: 42px;
+    padding: 0 12px;
+    border-radius: 999px;
+    background: rgba(15, 118, 110, 0.10);
+    color: var(--fusion-teal-dark);
+    font-weight: 900;
+  }
+
+  .pub-card h4 {
+    margin: 14px 0 10px;
+    font-size: 1.18rem;
+    font-weight: 900;
+    line-height: 1.35;
+  }
+
+  .pub-meta {
+    margin-top: 4px;
+    font-size: 0.98rem;
+  }
+
+  .pub-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .pub-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 7px 11px;
+    border-radius: 999px;
+    background: rgba(199, 154, 59, 0.12);
+    color: #9d7424;
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+  }
+
+  .pub-abstract {
+    margin-top: 16px;
+    padding: 18px;
+    border-left: 4px solid rgba(15, 118, 110, 0.25);
+    background: rgba(15, 118, 110, 0.04);
+    border-radius: 14px;
+    font-size: 0.98rem;
+  }
+
+  .pub-abstract strong {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--fusion-ink);
+  }
+
+  .pub-points {
+    margin: 16px 0 0;
+    padding-left: 18px;
+    color: var(--fusion-muted);
+    line-height: 1.9;
+  }
+
+  .pub-link-row {
+    margin-top: 18px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .pub-card .fusion-btn {
+    padding: 10px 15px;
+    font-size: 0.94rem;
+  }
+
+  .wide-note {
+    margin-top: 18px;
+    color: var(--fusion-muted);
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 980px) {
+    .theme-grid { grid-template-columns: 1fr; }
+    .fusion-hero { padding: 72px 18px 60px; }
+    .fusion-section { padding: 64px 18px; }
+  }
+
+  @media (max-width: 560px) {
+    .fusion-hero p,
+    .fusion-lead,
+    .pub-card p,
+    .pub-meta,
+    .pub-abstract,
+    .theme-chip span,
+    .wide-note {
+      font-size: 1rem;
+    }
+  }
+</style>
+
+<div class="fusion-home">
+  <section class="fusion-hero">
+    <div class="fusion-kicker">Selected Publications</div>
+    <h1>Publications</h1>
+    <h2>Research outputs mapped to the five core themes of the portfolio</h2>
+    <p>
+      This page connects selected publications to the five research themes: Forecasting, Data Analytics, Modelling and Simulation, Intelligent Optimization, and Decision Support Systems.
+      Each entry includes a concise abstract summary, theme alignment, and a path back to the related theme pages.
+    </p>
+
+    <div class="fusion-actions">
+      <a class="fusion-btn primary" href="/research/">Research</a>
+      <a class="fusion-btn secondary" href="/projects/">Projects</a>
+      <a class="fusion-btn secondary" href="/contact/">Contact</a>
+    </div>
+  </section>
+
+  <section class="fusion-section">
+    <div class="inner">
+      <h3>Theme Map</h3>
+      <p class="fusion-lead">
+        Use these links to move between the publication record and the detailed thematic pages.
+      </p>
+
+      <div class="theme-grid">
+        <a class="theme-chip" href="/forecasting/">
+          <strong>Forecasting</strong>
+          <span>Predictive modeling, time-series methods, and robust validation.</span>
+        </a>
+        <a class="theme-chip" href="/analytics/">
+          <strong>Data Analytics</strong>
+          <span>Exploratory statistics, visual analysis, and pattern discovery.</span>
+        </a>
+        <a class="theme-chip" href="/simulation/">
+          <strong>Modelling and Simulation</strong>
+          <span>Scenario testing and computational representations of real systems.</span>
+        </a>
+        <a class="theme-chip" href="/optimization/">
+          <strong>Intelligent Optimization</strong>
+          <span>Constraint-aware decision-making and best-action selection.</span>
+        </a>
+        <a class="theme-chip" href="/decision-support/">
+          <strong>Decision Support Systems</strong>
+          <span>Integrated tools that convert analysis into practical decisions.</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="fusion-section" style="padding-top:0;">
+    <div class="inner">
+      <h3>Selected Publications</h3>
+      <p class="fusion-lead">
+        The following entries are written as website-ready publication detail cards. The abstract text is summarized from the paper or thesis abstract so it remains readable on the page while staying aligned with the original work.
+      </p>
+
+      <div class="pub-list">
+        <article class="pub-card" id="pub-1">
+          <div class="pub-top">
+            <div class="pub-index">1</div>
+            <div class="pub-meta">2026 · Results in Engineering · Journal article</div>
+          </div>
+          <h4>Dynamic Characteristics of Renewable Energy Generation and Consumption Using LSTM Deep Learning Algorithm</h4>
+          <p class="pub-meta">M. Fahrudin Muna, Asif Iqbal Malik, Mujahid N. Syed</p>
+          <div class="pub-tags">
+            <span class="pub-tag">Forecasting</span>
+            <span class="pub-tag">Data Analytics</span>
+            <span class="pub-tag">Decision Support</span>
+          </div>
+          <div class="pub-abstract">
+            <strong>Abstract summary</strong>
+            The study examines how static and dynamic temporal variables shape renewable energy generation and consumption across nine datasets, including regional consumption series, weather-linked demand, household smart-meter data, wind, and solar generation. The workflow combines exploratory statistical diagnostics, visualization, and STL decomposition to reveal multi-scale seasonal structure, then evaluates LSTM forecasting using time-aware preprocessing, sliding windows, and expanding-window cross-validation. The results show distinct temporal behaviors for solar, wind, household, and regional energy series, and the validation-enhanced LSTM setup improves performance over a non-validated configuration.
+          </div>
+          <ul class="pub-points">
+            <li>Best fit with the forecasting and analytics themes.</li>
+            <li>Useful as the lead publication for the energy-data storyline.</li>
+            <li>Supports the research direction toward intelligent decision support.</li>
+          </ul>
+          <div class="pub-link-row">
+            <a class="fusion-btn primary" href="/forecasting/">Related Theme</a>
+            <a class="fusion-btn secondary" href="/analytics/">Data Analytics</a>
+          </div>
+        </article>
+
+        <article class="pub-card" id="pub-2">
+          <div class="pub-top">
+            <div class="pub-index">2</div>
+            <div class="pub-meta">2025 · Engineering Headway · Survey article</div>
+          </div>
+          <h4>A Survey of Sentiment Analysis in Halal Tourism Using Machine Learning and Lexicon Approaches for Extracting Sentiment Polarity</h4>
+          <p class="pub-meta">B. Jan, A. Hamid, M. F. Muna, H. Aljamaan</p>
+          <div class="pub-tags">
+            <span class="pub-tag">Data Analytics</span>
+            <span class="pub-tag">Machine Learning</span>
+            <span class="pub-tag">Decision Support</span>
+          </div>
+          <div class="pub-abstract">
+            <strong>Abstract summary</strong>
+            This survey reviews sentiment analysis research in halal tourism, a fast-growing sector spanning halal food, sharia hotels, banking, cosmetics, medicines, and finance. It synthesizes machine learning and lexicon-based approaches for extracting sentiment polarity from reviews and public opinion, including Random Forest, Naive Bayes, Support Vector Machine, Decision Tree, CNN, BERT, and attention-based models. The paper positions sentiment analysis as a practical tool for understanding tourist perceptions and guiding future research in halal tourism services.
+          </div>
+          <ul class="pub-points">
+            <li>Best fit with the data analytics theme.</li>
+            <li>Works well as a literature-entry publication on text analytics and opinion mining.</li>
+            <li>Can be positioned as decision intelligence for the service sector.</li>
+          </ul>
+          <div class="pub-link-row">
+            <a class="fusion-btn primary" href="/analytics/">Related Theme</a>
+            <a class="fusion-btn secondary" href="/decision-support/">Decision Support</a>
+          </div>
+        </article>
+
+        <article class="pub-card" id="pub-3">
+          <div class="pub-top">
+            <div class="pub-index">3</div>
+            <div class="pub-meta">2023 · AIP Conference Proceedings · Conference paper</div>
+          </div>
+          <h4>Usability Testing of Smart Inventory Software for EOQ, ROP and SS with Recommendation Decision in the Context of SMEs</h4>
+          <p class="pub-meta">M. Fahrudin Muna, Fitri Trapsilawati, Mirwan Ushada, Safira Alsana</p>
+          <div class="pub-tags">
+            <span class="pub-tag">Decision Support</span>
+            <span class="pub-tag">Optimization</span>
+            <span class="pub-tag">Usability</span>
+          </div>
+          <div class="pub-abstract">
+            <strong>Abstract summary</strong>
+            The paper describes a smart inventory software designed to help SMEs decide inventory quantity, economical order size, ordering time, and supplier selection. The system is implemented with a database-backed Microsoft Access and VBA workflow, while inventory planning uses EOQ and supplier selection relies on a minimum-function rule. Usability is evaluated with user testing, a within-subject design, thinking-aloud and interview techniques, plus objective measures such as completion time, error rate, and success rate. The reported SUS score improves from 65 to 76.8 after revision, indicating better usability in the second version.
+          </div>
+          <ul class="pub-points">
+            <li>Strong fit with decision support and intelligent optimization.</li>
+            <li>Good bridge between method design and user-centered evaluation.</li>
+            <li>Useful as a practical SME-oriented publication in the portfolio.</li>
+          </ul>
+          <div class="pub-link-row">
+            <a class="fusion-btn primary" href="/decision-support/">Related Theme</a>
+            <a class="fusion-btn secondary" href="/optimization/">Optimization</a>
+          </div>
+        </article>
+
+        <article class="pub-card" id="pub-4">
+          <div class="pub-top">
+            <div class="pub-index">4</div>
+            <div class="pub-meta">2022 · Universitas Gadjah Mada · Thesis</div>
+          </div>
+          <h4>Pengembangan Dan Evaluasi Usabilitas Sistem Pendukung Keputusan Pada Proses Bisnis UMKM</h4>
+          <p class="pub-meta">M. Fahrudin Muna · supervised by Fitri Trapsilawati</p>
+          <div class="pub-tags">
+            <span class="pub-tag">Decision Support</span>
+            <span class="pub-tag">Optimization</span>
+            <span class="pub-tag">Usability</span>
+          </div>
+          <div class="pub-abstract">
+            <strong>Abstract summary</strong>
+            The thesis addresses inventory-management problems faced by SMEs under demand fluctuations and uncertain economic conditions, especially during the pandemic period. It develops a decision support system to estimate inventory needs, economical order quantities, ordering time, and supplier choice, using a database-based application implemented with Microsoft Access and VBA. The thesis also evaluates usability through user testing with seven respondents, combining thinking aloud, interviews, completion time, error rate, success rate, and System Usability Scale (SUS). The revised version performs better, with SUS improving from 65 to 76.8.
+          </div>
+          <ul class="pub-points">
+            <li>This is the thesis foundation for the inventory decision-support line of work.</li>
+            <li>It connects naturally to the optimization and decision support themes.</li>
+            <li>Pairs well with the conference paper that expands the same problem space.</li>
+          </ul>
+          <div class="pub-link-row">
+            <a class="fusion-btn primary" href="/decision-support/">Related Theme</a>
+            <a class="fusion-btn secondary" href="/optimization/">Optimization</a>
+          </div>
+        </article>
+
+        <article class="pub-card" id="pub-5">
+          <div class="pub-top">
+            <div class="pub-index">5</div>
+            <div class="pub-meta">2015 · IEEE 12th International Multi-Conference on Systems, Signals & Devices · Conference paper</div>
+          </div>
+          <h4>Stiction Compensation Using PI-Sliding Mode Control for Pneumatic Valve</h4>
+          <p class="pub-meta">S. Elferik, M. F. Muna, T. B. Susilo, I. H. Imran</p>
+          <div class="pub-tags">
+            <span class="pub-tag">Simulation</span>
+            <span class="pub-tag">Optimization</span>
+            <span class="pub-tag">Control Systems</span>
+          </div>
+          <div class="pub-abstract">
+            <strong>Abstract summary</strong>
+            The paper focuses on oscillations in process control loops caused by valve stiction, a common nonlinear fault that can waste energy, increase variability, and degrade product quality. It proposes a compensation approach based on PI-sliding mode control to handle unknown stiction levels, reduce process variability, and extend valve life. Simulation results are used to demonstrate the method’s performance and compare it with recent published approaches, making the paper a strong fit for the modelling, simulation, and optimization themes.
+          </div>
+          <ul class="pub-points">
+            <li>Best fit with modelling and simulation, with a clear optimization/control angle.</li>
+            <li>Shows an earlier but still relevant systems-and-control research direction.</li>
+            <li>Complements the later decision-support and energy analytics work.</li>
+          </ul>
+          <div class="pub-link-row">
+            <a class="fusion-btn primary" href="/simulation/">Related Theme</a>
+            <a class="fusion-btn secondary" href="/optimization/">Optimization</a>
+          </div>
+        </article>
+      </div>
+
+      <p class="wide-note">
+        These publication summaries are arranged to match the five-theme structure of the site and can be split into individual detail pages later if you want a separate page for each paper.
+      </p>
+    </div>
+  </section>
+</div>

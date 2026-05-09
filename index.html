@@ -1,7 +1,125 @@
 ---
 layout: home
-title: M  Fahrudin Muna
-subtitle: Ph D Student at King Fahd University of Petroleum and Minerals, in Industrial and Systems Engineering Department
+title: FUSION-AI
+subtitle: Forecasting, Analytics, Simulation, and Optimization for Intelligent Decision Support
 ---
 
-Welcome to your personal website!.
+<style>
+  :root {
+    --fusion-ink: #102033;
+    --fusion-muted: #5f6d7d;
+    --fusion-line: rgba(16, 32, 51, 0.10);
+    --fusion-bg: #f6f8fb;
+    --fusion-card: rgba(255, 255, 255, 0.92);
+    --fusion-teal: #0f766e;
+    --fusion-teal-dark: #0b5d57;
+    --fusion-gold: #c79a3b;
+    --fusion-shadow: 0 20px 50px rgba(16, 32, 51, 0.08);
+  }
+
+  .fusion-home {
+    color: var(--fusion-ink);
+    background:
+      radial-gradient(circle at top left, rgba(15, 118, 110, 0.10), transparent 30%),
+      radial-gradient(circle at top right, rgba(199, 154, 59, 0.10), transparent 26%),
+      linear-gradient(180deg, #ffffff 0%, var(--fusion-bg) 100%);
+    border-radius: 30px;
+    overflow: hidden;
+  }
+
+  .fusion-hero {
+    padding: 88px 24px 74px;
+    text-align: center;
+    border-bottom: 1px solid var(--fusion-line);
+    background:
+      linear-gradient(180deg, rgba(15,118,110,0.06), rgba(15,118,110,0.01)),
+      linear-gradient(135deg, #ffffff 0%, #f9fbfc 100%);
+  }
+
+  .fusion-kicker {
+    display: inline-flex;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: rgba(15, 118, 110, 0.06);
+    color: var(--fusion-teal-dark);
+    font-size: 0.84rem;
+    letter-spacing: 0.08em;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+  }
+
+  .fusion-hero h1 {
+    margin: 0;
+    font-size: clamp(2.5rem, 5vw, 4.9rem);
+    line-height: 1.02;
+    font-weight: 900;
+    letter-spacing: -0.05em;
+  }
+
+  .fusion-hero h2 {
+    margin: 18px auto 0;
+    max-width: 980px;
+    font-size: clamp(1.2rem, 2.6vw, 2.1rem);
+    line-height: 1.3;
+    font-weight: 650;
+    color: var(--fusion-teal-dark);
+  }
+
+  .fusion-hero p {
+    margin: 22px auto 0;
+    max-width: 880px;
+    font-size: 1.06rem;
+    line-height: 1.85;
+    color: var(--fusion-muted);
+  }
+
+  .fusion-actions {
+    margin-top: 32px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .fusion-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 18px;
+    border-radius: 999px;
+    font-weight: 800;
+    text-decoration: none;
+    border: 1px solid transparent;
+  }
+
+  .fusion-btn.primary {
+    background: linear-gradient(135deg, var(--fusion-teal), var(--fusion-teal-dark));
+    color: #fff;
+  }
+
+  .fusion-btn.secondary {
+    background: #fff;
+    color: var(--fusion-teal-dark);
+    border-color: rgba(15, 118, 110, 0.18);
+  }
+</style>
+
+<div class="fusion-home">
+  <section class="fusion-hero">
+    <div class="fusion-kicker">FUSION-AI Theme</div>
+    <h1>FUSION-AI Lab</h1>
+    <h2>Forecasting, Analytics, Simulation, and Optimization for Intelligent Decision Support</h2>
+    <p>
+      I focus on developing integrated methods that transform data into reliable decisions through forecasting, analytics, simulation, and optimization.
+    </p>
+
+    <div class="fusion-actions">
+      <a class="fusion-btn primary" href="/research">Research</a>
+      <a class="fusion-btn secondary" href="/projects">Projects</a>
+      <a class="fusion-btn secondary" href="/publications">Publications</a>
+      <a class="fusion-btn secondary" href="/cv">CV</a>
+      <a class="fusion-btn secondary" href="/contact">Contact</a>
+    </div>
+  </section>
+</div>
