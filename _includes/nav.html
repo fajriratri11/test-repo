@@ -2,9 +2,12 @@
   <div class="container-fluid">
 
   {%- if site.title-img -%}
-    <a class="navbar-brand navbar-brand-logo" href="{{ '' | absolute_url }}"><img alt="{{ site.title }} Logo" src="{{ site.title-img | relative_url}}"/></a>
-  {%- elsif site.title -%}
-    <a class="navbar-brand" href="{{ '' | absolute_url }}">{{ site.title }}</a>
+    <a class="navbar-brand navbar-brand-logo" href="{{ '/' | relative_url }}"><img alt="{{ site.title }} Logo" src="{{ site.title-img | relative_url}}"/></a>
+  {%- else -%}
+    <a class="navbar-brand" href="{{ '/' | relative_url }}">
+      <span>FUSION-AI</span>
+      <span class="academic-brand-badge d-none d-md-inline-block">KFUPM &bull; UGM</span>
+    </a>
   {%- endif -%}
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,7 +15,7 @@
   </button>
 
   <div class="collapse navbar-collapse" id="main-navbar">
-    <ul class="navbar-nav ml-auto">
+    <ul class="navbar-nav ml-auto align-items-center">
       {%- for link in site.navbar-links -%}
         {%- if link[1].first %}
           <li class="nav-item dropdown">
@@ -26,7 +29,9 @@
             </div>
           </li>
         {% else %}
-          <li class="nav-item">
+          {% assign link_path = link[1] | append: '/' %}
+          {% assign page_path = page.url %}
+          <li class="nav-item {% if page_path contains link[1] %}active{% endif %}">
             <a class="nav-link" href="{{ link[1] | relative_url }}">{{ link[0] }}</a>
           </li>
         {%- endif -%}

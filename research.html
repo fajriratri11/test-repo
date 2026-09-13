@@ -2,337 +2,167 @@
 layout: page
 title: Research
 permalink: /research/
+no_header: true
+full_width: true
 ---
 
-<style>
-  :root {
-    --fusion-ink: #102033;
-    --fusion-muted: #5f6d7d;
-    --fusion-line: rgba(16, 32, 51, 0.10);
-    --fusion-bg: #f6f8fb;
-    --fusion-card: rgba(255, 255, 255, 0.96);
-    --fusion-teal: #0f766e;
-    --fusion-teal-dark: #0b5d57;
-    --fusion-gold: #c79a3b;
-    --fusion-shadow: 0 20px 50px rgba(16, 32, 51, 0.08);
-  }
-
-  .fusion-home {
-    color: var(--fusion-ink);
-    background:
-      radial-gradient(circle at top left, rgba(15, 118, 110, 0.10), transparent 30%),
-      radial-gradient(circle at top right, rgba(199, 154, 59, 0.10), transparent 26%),
-      linear-gradient(180deg, #ffffff 0%, var(--fusion-bg) 100%);
-    border-radius: 30px;
-    overflow: hidden;
-  }
-
-  .fusion-hero {
-    position: relative;
-    padding: 84px 24px 68px;
-    text-align: center;
-    background:
-      linear-gradient(180deg, rgba(15,118,110,0.06), rgba(15,118,110,0.01)),
-      linear-gradient(135deg, #ffffff 0%, #f9fbfc 100%);
-    border-bottom: 1px solid var(--fusion-line);
-  }
-
-  .fusion-kicker {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 8px 14px;
-    border: 1px solid rgba(15, 118, 110, 0.18);
-    background: rgba(15, 118, 110, 0.06);
-    color: var(--fusion-teal-dark);
-    border-radius: 999px;
-    font-size: 0.84rem;
-    letter-spacing: 0.08em;
-    font-weight: 800;
-    text-transform: uppercase;
-    margin-bottom: 22px;
-  }
-
-  .fusion-hero h1 {
-    margin: 0;
-    font-size: clamp(2.5rem, 5vw, 4.9rem);
-    line-height: 1.02;
-    font-weight: 900;
-    letter-spacing: -0.05em;
-  }
-
-  .fusion-hero h2 {
-    margin: 18px auto 0;
-    max-width: 980px;
-    font-size: clamp(1.2rem, 2.6vw, 2.1rem);
-    line-height: 1.3;
-    font-weight: 650;
-    color: var(--fusion-teal-dark);
-  }
-
-  .fusion-hero p,
-  .fusion-lead {
-    color: var(--fusion-muted);
-    line-height: 1.9;
-  }
-
-  .fusion-hero p {
-    margin: 22px auto 0;
-    max-width: 900px;
-    font-size: 1.06rem;
-  }
-
-  .fusion-actions {
-    margin-top: 32px;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-
-  .fusion-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 12px 18px;
-    border-radius: 999px;
-    font-weight: 800;
-    text-decoration: none;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-    border: 1px solid transparent;
-  }
-
-  .fusion-btn:hover {
-    transform: translateY(-1px);
-  }
-
-  .fusion-btn.primary {
-    background: linear-gradient(135deg, var(--fusion-teal), var(--fusion-teal-dark));
-    color: #fff;
-    box-shadow: 0 12px 24px rgba(15, 118, 110, 0.22);
-  }
-
-  .fusion-btn.secondary {
-    background: #fff;
-    color: var(--fusion-teal-dark);
-    border-color: rgba(15, 118, 110, 0.18);
-  }
-
-  .fusion-metrics {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 1px;
-    background: var(--fusion-line);
-    border-top: 1px solid var(--fusion-line);
-    border-bottom: 1px solid var(--fusion-line);
-  }
-
-  .fusion-metric {
-    background: rgba(255,255,255,0.96);
-    padding: 30px 16px;
-    text-align: center;
-  }
-
-  .fusion-metric .value {
-    display: block;
-    font-size: clamp(1.8rem, 3vw, 2.7rem);
-    line-height: 1;
-    font-weight: 900;
-    color: var(--fusion-gold);
-    letter-spacing: -0.03em;
-  }
-
-  .fusion-metric .label {
-    display: block;
-    margin-top: 8px;
-    font-size: 0.78rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--fusion-muted);
-    font-weight: 800;
-  }
-
-  .fusion-section {
-    padding: 82px 24px;
-  }
-
-  .fusion-section .inner {
-    max-width: 1180px;
-    margin: 0 auto;
-  }
-
-  .fusion-section h3 {
-    margin: 0;
-    font-size: clamp(1.8rem, 3vw, 3rem);
-    line-height: 1.1;
-    font-weight: 900;
-    letter-spacing: -0.04em;
-  }
-
-  .fusion-lead {
-    max-width: 820px;
-    margin-top: 16px;
-    font-size: 1.06rem;
-  }
-
-  .theme-grid {
-    margin-top: 34px;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 22px;
-  }
-
-  .theme-card {
-    display: block;
-    text-decoration: none;
-    color: inherit;
-    background: var(--fusion-card);
-    border: 1px solid var(--fusion-line);
-    border-radius: 24px;
-    padding: 26px;
-    box-shadow: var(--fusion-shadow);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-  }
-
-  .theme-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 24px 60px rgba(16, 32, 51, 0.14);
-  }
-
-  .theme-card .tag {
-    display: inline-flex;
-    align-items: center;
-    margin-bottom: 16px;
-    padding: 7px 12px;
-    border-radius: 999px;
-    background: rgba(15, 118, 110, 0.08);
-    color: var(--fusion-teal-dark);
-    font-size: 0.8rem;
-    font-weight: 900;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  .theme-card h4 {
-    margin: 0 0 10px;
-    font-size: 1.08rem;
-    font-weight: 900;
-    letter-spacing: -0.02em;
-    color: var(--fusion-ink);
-  }
-
-  .theme-card p {
-    margin: 0;
-    color: var(--fusion-muted);
-    line-height: 1.8;
-  }
-
-  .theme-card.wide {
-    grid-column: 1 / -1;
-  }
-
-  .fusion-research-direction {
-    background: var(--fusion-card);
-    border: 1px solid var(--fusion-line);
-    border-radius: 24px;
-    padding: 28px;
-    box-shadow: var(--fusion-shadow);
-  }
-
-  @media (max-width: 980px) {
-    .fusion-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .theme-grid { grid-template-columns: 1fr; }
-    .theme-card.wide { grid-column: auto; }
-    .fusion-hero { padding: 72px 18px 60px; }
-    .fusion-section { padding: 64px 18px; }
-  }
-
-  @media (max-width: 560px) {
-    .fusion-metrics { grid-template-columns: 1fr; }
-    .fusion-hero p,
-    .fusion-lead,
-    .theme-card p {
-      font-size: 1rem;
-    }
-  }
-</style>
-
-<div class="fusion-home">
-  <section class="fusion-hero">
-    <div class="fusion-kicker">Research Overview</div>
-    <h1>Research</h1>
-    <h2>Forecasting, Data Analytics, Modelling and Simulation, Intelligent Optimization, and Decision Support Systems</h2>
-    <p>
-      My research focuses on methods for complex industrial and engineering problems, with an emphasis on predictive modeling, exploratory analysis, simulation-based experimentation, and optimization for decision support.
-    </p>
-
-    <div class="fusion-actions">
-      <a class="fusion-btn primary" href="/projects/">Projects</a>
-      <a class="fusion-btn secondary" href="/publications/">Publications</a>
-      <a class="fusion-btn secondary" href="/cv/">Download CV</a>
-      <a class="fusion-btn secondary" href="/contact/">Contact</a>
-    </div>
-  </section>
-
-  <section class="fusion-metrics" aria-label="Highlights">
-    <div class="fusion-metric"><span class="value">5</span><span class="label">Research Themes</span></div>
-    <div class="fusion-metric"><span class="value">EDA</span><span class="label">Energy Insight</span></div>
-    <div class="fusion-metric"><span class="value">LSTM</span><span class="label">Forecasting Engine</span></div>
-    <div class="fusion-metric"><span class="value">DSS</span><span class="label">Decision Support</span></div>
-  </section>
-
-  <section class="fusion-section">
-    <div class="inner">
-      <h3>Research Themes</h3>
-      <p class="fusion-lead">
-        Each theme connects to a detailed page so the research structure is easy to navigate and consistent across the site.
+<div class="fusion-main-content">
+  <!-- Page Hero -->
+  <section class="bespoke-hero" style="padding: 56px 0 60px;">
+    <div class="fusion-container">
+      <div class="academic-overtitle">
+        FUSION-AI LAB &bull; RESEARCH ARCHITECTURE &bull; KFUPM
+      </div>
+      <h1 class="hero-heading" style="font-size: clamp(2.4rem, 4vw, 3.8rem); line-height: 1.1; margin-bottom: 16px;">
+        Research Themes &amp; Methodological Agenda
+      </h1>
+      <p class="hero-subhead" style="margin-bottom: 24px;">
+        Developing integrated mathematical and computational methods for complex industrial and engineering systems.
       </p>
 
-      <div class="theme-grid">
-        <a class="theme-card" href="/forecasting/">
-          <span class="tag">Theme 1</span>
-          <h4>Forecasting</h4>
-          <p>Predict future behavior using historical data, statistical methods, and machine learning.</p>
-        </a>
+      <p class="hero-narrative" style="max-width: 880px;">
+        My research develops integrated mathematical and computational methods for complex industrial and engineering problems. The agenda bridges empirical data diagnostics, deep learning time-series forecasting, stochastic simulation, and mathematical optimization into practical decision support systems.
+      </p>
 
-        <a class="theme-card" href="/analytics/">
-          <span class="tag">Theme 2</span>
-          <h4>Data Analytics</h4>
-          <p>Discover patterns, diagnose structure, and support evidence-based decisions with visual and statistical analysis.</p>
-        </a>
-
-        <a class="theme-card" href="/simulation/">
-          <span class="tag">Theme 3</span>
-          <h4>Modelling and Simulation</h4>
-          <p>Represent real systems computationally and test alternative scenarios before applying actions in practice.</p>
-        </a>
-
-        <a class="theme-card" href="/optimization/">
-          <span class="tag">Theme 4</span>
-          <h4>Intelligent Optimization</h4>
-          <p>Find the best decisions under constraints using mathematical programming and computational intelligence.</p>
-        </a>
-
-        <a class="theme-card wide" href="/decision-support/">
-          <span class="tag">Theme 5</span>
-          <h4>Decision Support Systems</h4>
-          <p>
-            Integrate forecasting, analytics, simulation, and optimization into practical tools that improve decision quality, consistency, and responsiveness in uncertain environments.
-          </p>
-        </a>
+      <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+        <a class="fusion-btn primary" href="{{ '/projects/' | relative_url }}">View Research Projects &rarr;</a>
+        <a class="fusion-btn secondary" href="{{ '/publications/' | relative_url }}">Selected Publications</a>
+        <a class="fusion-btn secondary" href="{{ '/cv/' | relative_url }}">Academic CV</a>
+        <a class="fusion-btn secondary" href="{{ '/contact/' | relative_url }}">Contact Lab</a>
       </div>
     </div>
   </section>
 
-  <section class="fusion-section" style="padding-top:0;">
-    <div class="inner">
-      <div class="fusion-research-direction">
-        <h3>Research Direction</h3>
-        <p class="fusion-lead" style="margin-bottom:0;">
-          My work integrates predictive methods, analytical insight, simulation-based experimentation, and optimization techniques into a unified framework for intelligent decision support. The goal is to improve the quality, speed, and reliability of decisions in uncertain and dynamic environments.
-        </p>
-      </div>
+  <!-- Metric Bar -->
+  <section class="metric-ribbon" aria-label="Research Highlights">
+    <div class="metric-cell">
+      <span class="metric-num">5</span>
+      <span class="metric-label">Integrated Pillars</span>
+    </div>
+    <div class="metric-cell">
+      <span class="metric-num">9</span>
+      <span class="metric-label">Energy Datasets Benchmarked</span>
+    </div>
+    <div class="metric-cell">
+      <span class="metric-num highlight">LSTM</span>
+      <span class="metric-label">Deep Learning Core</span>
+    </div>
+    <div class="metric-cell">
+      <span class="metric-num">DSS</span>
+      <span class="metric-label">Operational Realization</span>
     </div>
   </section>
+
+  <!-- Core Content Container -->
+  <div class="fusion-container" style="padding-top: 64px; padding-bottom: 80px;">
+    <!-- Research Themes Grid -->
+    <div style="margin-bottom: 64px;">
+      <div class="editorial-kicker">Five Core Pillars</div>
+      <h2 class="editorial-section-title">The Five Interconnected Pillars</h2>
+      <p class="editorial-lead">
+        Explore each foundational theme to inspect theoretical formulations, empirical benchmarks, and application case studies.
+      </p>
+
+      <div class="research-agenda-grid" style="margin-top: 32px;">
+        <!-- Theme 1 -->
+        <article class="pillar-agenda-card">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <span class="pillar-numeral">Pillar I</span>
+              <span class="academic-chip">9 Energy Datasets</span>
+            </div>
+            <h3 class="pillar-card-title">Data Analytics</h3>
+            <p class="pillar-card-desc">
+              Exploratory statistical diagnostics, stationarity verification (ADF &amp; KPSS tests), LOESS seasonal decomposition (STL), and anomaly detection across solar, wind, and demand profiles.
+            </p>
+          </div>
+          <div class="pillar-card-footer">
+            <a class="pillar-link-btn" href="{{ '/analytics/' | relative_url }}">Explore Pillar I &rarr;</a>
+          </div>
+        </article>
+
+        <!-- Theme 2 -->
+        <article class="pillar-agenda-card">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <span class="pillar-numeral">Pillar II</span>
+              <span class="academic-chip">Deep Learning</span>
+            </div>
+            <h3 class="pillar-card-title">Forecasting</h3>
+            <p class="pillar-card-desc">
+              Deep Long Short-Term Memory (LSTM) recurrent neural network architectures, time-respecting train/test splits, expanding-window walk-forward validation, and multi-step probabilistic predictive horizons.
+            </p>
+          </div>
+          <div class="pillar-card-footer">
+            <a class="pillar-link-btn" href="{{ '/forecasting/' | relative_url }}">Explore Pillar II &rarr;</a>
+          </div>
+        </article>
+
+        <!-- Theme 3 -->
+        <article class="pillar-agenda-card">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <span class="pillar-numeral">Pillar III</span>
+              <span class="academic-chip">Risk Bounds</span>
+            </div>
+            <h3 class="pillar-card-title">Modelling &amp; Simulation</h3>
+            <p class="pillar-card-desc">
+              Stochastic Monte Carlo generation for renewable grid adequacy (LOLE &amp; EUE) and nonlinear physical dynamics such as pneumatic valve stiction compensation with PI-sliding mode control.
+            </p>
+          </div>
+          <div class="pillar-card-footer">
+            <a class="pillar-link-btn" href="{{ '/simulation/' | relative_url }}">Explore Pillar III &rarr;</a>
+          </div>
+        </article>
+
+        <!-- Theme 4 -->
+        <article class="pillar-agenda-card">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <span class="pillar-numeral">Pillar IV</span>
+              <span class="academic-chip">Stochastic MILP</span>
+            </div>
+            <h3 class="pillar-card-title">Intelligent Optimization</h3>
+            <p class="pillar-card-desc">
+              Two-stage stochastic mixed-integer programming for Generator Expansion Planning (GEP), power balance equality constraints, spinning reserve allocation, and multi-objective cost vs. carbon trade-offs.
+            </p>
+          </div>
+          <div class="pillar-card-footer">
+            <a class="pillar-link-btn" href="{{ '/optimization/' | relative_url }}">Explore Pillar IV &rarr;</a>
+          </div>
+        </article>
+
+        <!-- Theme 5 -->
+        <article class="pillar-agenda-card featured">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <span class="pillar-numeral">Pillar V</span>
+              <span class="academic-chip">SUS Usability: 76.8</span>
+            </div>
+            <h3 class="pillar-card-title">Decision Support Systems (DSS)</h3>
+            <p class="pillar-card-desc">
+              Four-tier decision architecture integrating database layers, predictive model bases, and recommendation engines. Demonstrated via SME smart inventory optimization (EOQ, ROP, SS) and verified with within-subject usability engineering.
+            </p>
+          </div>
+          <div class="pillar-card-footer">
+            <a class="pillar-link-btn" href="{{ '/decision-support/' | relative_url }}">Explore Pillar V &rarr;</a>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- Long-Term Research Vision -->
+    <div style="background: var(--surface-paper); border: 1px solid var(--border-hairline); border-radius: var(--radius-card); padding: 40px; box-shadow: var(--shadow-paper); border-left: 3px solid var(--oxford-navy);">
+      <div class="editorial-kicker">VISION &amp; TRAJECTORY</div>
+      <h3 style="font-size: 1.6rem; margin-bottom: 16px; color: var(--ink-primary);">Bridging Algorithmic Innovation to Operational Impact</h3>
+      <p style="line-height: 1.85; color: var(--ink-secondary); margin-bottom: 24px;">
+        The core philosophy of the FUSION-AI Lab is that advanced predictive algorithms and mathematical optimization frameworks should not exist in isolation. Real-world engineering systems—such as transitioning power grids in Saudi Arabia and industrial SME operations in Indonesia—demand tools that combine analytical depth with human decision transparency. By linking sensing, prediction, risk simulation, optimization, and ergonomic decision interfaces into an unbroken pipeline, our research enables decision-makers to act with data-backed confidence under severe uncertainty.
+      </p>
+
+      <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+        <a class="fusion-btn primary sm" href="{{ '/projects/' | relative_url }}">View Associated Projects</a>
+        <a class="fusion-btn secondary sm" href="{{ '/contact/' | relative_url }}">Contact Lab</a>
+      </div>
+    </div>
+  </div>
 </div>

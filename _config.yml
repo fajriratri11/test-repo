@@ -39,17 +39,11 @@ navbar-links:
 # Uncomment and fill in the ones you want to show in the footer.
 
 social-network-links:
-#  email: "your@email.com"
-#  github: yourusername
-#  twitter: yourusername
-#  linkedin: yourusername
-#  instagram: yourusername
-#  google-scholar: "citations?user=YOURID"
-#  orcid: "0000-0000-0000-0000"
-#  youtube: "c/yourchannel"
-#  medium: yourusername
-#  mastodon: "instance.url/@username"
-#  calendly: yourusername
+  email: "g202203380@kfupm.edu.sa"
+  github: fadin2006
+  linkedin: "m-fahrudin-muna-34974275"
+  google-scholar: "scholar?q=%22M+Fahrudin+Muna%22"
+  orcid: "0000-0002-8236-3520"
 
 # Show RSS link in footer
 # rss-description: "Subscribe to my blog"
@@ -99,6 +93,7 @@ footer-link-col: "#404040"
 # Extra CSS files loaded on every page
 site-css:
   - "/assets/css/main.css"
+  - "/assets/css/fusion.css"
 
 # Extra JS files loaded on every page
 site-js:

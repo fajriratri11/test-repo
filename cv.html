@@ -1,329 +1,205 @@
 ---
 layout: page
-title: CV
+title: Curriculum Vitae
 permalink: /cv/
+no_header: true
+full_width: true
 ---
 
-<style>
-  :root {
-    --cv-ink: #102033;
-    --cv-muted: #5b6777;
-    --cv-line: rgba(16, 32, 51, 0.12);
-    --cv-green: #0f7a5b;
-    --cv-green-dark: #0b5d45;
-    --cv-soft: #f7fbf9;
-    --cv-card: #ffffff;
-    --cv-shadow: 0 18px 45px rgba(16, 32, 51, 0.08);
-  }
-
-  .cv-page {
-    max-width: 1120px;
-    margin: 0 auto;
-    padding: 24px 18px 56px;
-    color: var(--cv-ink);
-    background: linear-gradient(180deg, #ffffff 0%, var(--cv-soft) 100%);
-    border-radius: 26px;
-  }
-
-  .cv-header {
-    display: grid;
-    grid-template-columns: 1.5fr 0.75fr;
-    gap: 28px;
-    align-items: start;
-    padding: 10px 0 26px;
-    border-bottom: 1px solid var(--cv-line);
-  }
-
-  .cv-name {
-    font-size: clamp(2.1rem, 4vw, 3.5rem);
-    line-height: 1.02;
-    font-weight: 900;
-    margin: 0 0 10px;
-    color: var(--cv-green);
-    letter-spacing: -0.04em;
-  }
-
-  .cv-role {
-    font-size: clamp(1rem, 1.7vw, 1.25rem);
-    font-weight: 700;
-    color: var(--cv-ink);
-    margin: 0 0 18px;
-  }
-
-  .cv-meta {
-    margin: 0;
-    padding-left: 18px;
-    line-height: 1.9;
-    color: var(--cv-muted);
-  }
-
-  .cv-meta a {
-    color: var(--cv-green-dark);
-    text-decoration: none;
-  }
-
-  .cv-meta a:hover {
-    text-decoration: underline;
-  }
-
-  .cv-photo-wrap {
-    text-align: center;
-  }
-
-  .cv-photo {
-    width: 100%;
-    max-width: 300px;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-    border-radius: 18px;
-    border: 1px solid var(--cv-line);
-    box-shadow: var(--cv-shadow);
-    background: #fff;
-  }
-
-  .cv-photo-caption {
-    margin-top: 12px;
-    text-align: left;
-    max-width: 300px;
-  }
-
-  .cv-photo-caption h2 {
-    margin: 0 0 4px;
-    font-size: 1.15rem;
-    color: var(--cv-green);
-  }
-
-  .cv-photo-caption p {
-    margin: 0;
-    color: var(--cv-muted);
-  }
-
-  .cv-content {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 28px;
-    margin-top: 28px;
-  }
-
-  .cv-section {
-    background: var(--cv-card);
-    border: 1px solid var(--cv-line);
-    border-radius: 22px;
-    padding: 22px 22px 18px;
-    box-shadow: var(--cv-shadow);
-  }
-
-  .cv-section h3 {
-    margin: 0 0 14px;
-    font-size: 1.35rem;
-    color: var(--cv-green);
-    font-weight: 900;
-    letter-spacing: -0.02em;
-  }
-
-  .cv-section ul,
-  .cv-section ol {
-    margin: 0;
-    padding-left: 20px;
-    line-height: 1.9;
-    color: var(--cv-muted);
-  }
-
-  .cv-section p {
-    margin: 0;
-    line-height: 1.9;
-    color: var(--cv-muted);
-  }
-
-  .cv-publications li {
-    margin-bottom: 10px;
-  }
-
-  .cv-badges {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 14px;
-  }
-
-  .cv-badge {
-    display: inline-flex;
-    align-items: center;
-    padding: 8px 12px;
-    border-radius: 999px;
-    background: rgba(15, 122, 91, 0.09);
-    color: var(--cv-green-dark);
-    font-size: 0.88rem;
-    font-weight: 800;
-  }
-
-  .cv-note {
-    margin-top: 14px;
-    font-size: 0.95rem;
-    color: var(--cv-muted);
-  }
-
-  .cv-download {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 14px;
-    padding: 11px 16px;
-    border-radius: 999px;
-    background: linear-gradient(135deg, var(--cv-green), var(--cv-green-dark));
-    color: #fff;
-    text-decoration: none;
-    font-weight: 800;
-    box-shadow: 0 12px 24px rgba(15, 122, 91, 0.20);
-  }
-
-  .cv-download:hover {
-    text-decoration: none;
-    color: #fff;
-  }
-
-  .cv-quicklinks {
-    margin-top: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
-  .cv-quicklink {
-    display: inline-flex;
-    align-items: center;
-    padding: 7px 11px;
-    border-radius: 999px;
-    background: rgba(15, 122, 91, 0.08);
-    color: var(--cv-green-dark);
-    font-size: 0.84rem;
-    font-weight: 800;
-    text-decoration: none;
-  }
-
-  .cv-quicklink:hover {
-    text-decoration: none;
-    background: rgba(15, 122, 91, 0.12);
-  }
-
-  @media (max-width: 900px) {
-    .cv-header {
-      grid-template-columns: 1fr;
-    }
-
-    .cv-photo-wrap {
-      text-align: left;
-    }
-
-    .cv-photo-caption {
-      max-width: none;
-    }
-  }
-</style>
-
-<div class="cv-page">
-  <section class="cv-header">
-    <div>
-      <h1 class="cv-name">M Fahrudin Muna</h1>
-      <p class="cv-role">PhD Researcher, Industrial &amp; Systems Engineering</p>
-
-      <ul class="cv-meta">
-        <li>King Fahd University of Petroleum and Minerals, Dhahran, Saudi Arabia</li>
-        <li>Email: <a href="mailto:fahrudin.muna@mail.ugm.ac.id">fahrudin.muna@mail.ugm.ac.id</a> | <a href="mailto:g202203380@kfupm.edu.sa">g202203380@kfupm.edu.sa</a></li>
-        <li>Google Scholar: <a href="https://scholar.google.com/citations?hl=en&amp;view_op=list_works&amp;gmla=AIqSsVsxTXBGc-6pHqpK25J5JXi6i9_yOOh15OgIYaRQsyVm2q4A_OFDdHttVKR0Z0698t60AOgOO30dDHIzlQ&amp;user=lA-4Pa0AAAAJ" target="_blank" rel="noopener noreferrer">Profile</a></li>
-        <li>LinkedIn: <a href="https://www.linkedin.com/in/m-fahrudin-muna-34974275/" target="_blank" rel="noopener noreferrer">Profile</a></li>
-        <li>ResearchGate: <a href="https://www.researchgate.net/profile/M-Fahrudin-Muna-2" target="_blank" rel="noopener noreferrer">Profile</a></li>
-        <li>ORCID: <a href="https://orcid.org/0000-0002-8236-3520" target="_blank" rel="noopener noreferrer">0000-0002-8236-3520</a></li>
-      </ul>
-
-      <div class="cv-quicklinks" aria-label="Profile links">
-        <a class="cv-quicklink" href="https://scholar.google.com/citations?hl=en&amp;view_op=list_works&amp;gmla=AIqSsVsxTXBGc-6pHqpK25J5JXi6i9_yOOh15OgIYaRQsyVm2q4A_OFDdHttVKR0Z0698t60AOgOO30dDHIzlQ&amp;user=lA-4Pa0AAAAJ" target="_blank" rel="noopener noreferrer">Scholar</a>
-        <a class="cv-quicklink" href="https://www.linkedin.com/in/m-fahrudin-muna-34974275/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a class="cv-quicklink" href="https://www.researchgate.net/profile/M-Fahrudin-Muna-2" target="_blank" rel="noopener noreferrer">ResearchGate</a>
-        <a class="cv-quicklink" href="https://orcid.org/0000-0002-8236-3520" target="_blank" rel="noopener noreferrer">ORCID</a>
+<div class="fusion-main-content">
+  <!-- Page Hero -->
+  <section class="fusion-flagship-hero" style="padding: 56px 0 64px;">
+    <div class="fusion-container">
+      <div class="fusion-kicker">
+        ACADEMIC CURRICULUM VITAE &bull; M FAHRUDIN MUNA
       </div>
+      <h1 style="font-size: clamp(2.4rem, 4vw, 3.8rem); line-height: 1.1; margin-bottom: 16px;">
+        Curriculum Vitae
+      </h1>
+      <p style="font-size: 1.15rem; max-width: 860px; color: var(--fusion-text-muted); line-height: 1.85;">
+        PhD Researcher in Industrial &amp; Systems Engineering at King Fahd University of Petroleum and Minerals (KFUPM). Comprehensive record of academic degrees, teaching assistantships, engineering capabilities, and publications.
+      </p>
 
-      <a class="cv-download" href="/assets/files/M_Fahrudin_Muna_CV.pdf">Download CV PDF</a>
-    </div>
-
-    <div class="cv-photo-wrap">
-      <img class="cv-photo" src="/assets/img/profile.jpg" alt="M Fahrudin Muna portrait">
-      <div class="cv-photo-caption">
-        <h2>M Fahrudin Muna</h2>
-        <p>PhD Researcher</p>
+      <div class="hero-actions" style="margin-top: 28px;">
+        <a class="fusion-btn primary" href="{{ '/assets/files/M_Fahrudin_Muna_CV.pdf' | relative_url }}">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          <span>Download CV PDF</span>
+        </a>
+        <a class="fusion-btn secondary" href="{{ '/publications/' | relative_url }}">View Publications</a>
+        <a class="fusion-btn secondary" href="{{ '/contact/' | relative_url }}">Contact Channels</a>
       </div>
     </div>
   </section>
 
-  <div class="cv-content">
-    <section class="cv-section">
-      <h3>Research Interests</h3>
-      <ul>
-        <li>Forecasting and predictive analytics</li>
-        <li>Data analytics for energy and industrial systems</li>
-        <li>Modelling and simulation</li>
-        <li>Intelligent optimization</li>
-        <li>Decision support systems</li>
-      </ul>
-      <div class="cv-badges">
-        <span class="cv-badge">Forecasting</span>
-        <span class="cv-badge">Analytics</span>
-        <span class="cv-badge">Simulation</span>
-        <span class="cv-badge">Optimization</span>
-        <span class="cv-badge">Decision Support</span>
+  <!-- CV Body -->
+  <div class="fusion-container" style="padding-top: 64px; padding-bottom: 80px;">
+    <!-- Profile Summary Card -->
+    <div class="cv-hero-card">
+      <div style="display: grid; grid-template-columns: 1fr auto; gap: 36px; align-items: center;">
+        <div>
+          <h2 style="font-size: 2.2rem; color: var(--fusion-navy-950); margin: 0 0 8px;">M Fahrudin Muna</h2>
+          <div style="font-size: 1.15rem; font-weight: 700; color: var(--fusion-teal-800); margin-bottom: 16px;">
+            PhD Researcher, Industrial &amp; Systems Engineering
+          </div>
+
+          <p style="margin: 0 0 16px; color: var(--fusion-slate-600); line-height: 1.75;">
+            King Fahd University of Petroleum and Minerals (KFUPM), Dhahran, Kingdom of Saudi Arabia.<br>
+            Emails: <a href="mailto:g202203380@kfupm.edu.sa" style="color: var(--fusion-teal-800); font-weight: 600;">g202203380@kfupm.edu.sa</a> &bull; <a href="mailto:fahrudin.muna@mail.ugm.ac.id" style="color: var(--fusion-teal-800); font-weight: 600;">fahrudin.muna@mail.ugm.ac.id</a>
+          </p>
+
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <a class="badge-link" href="https://scholar.google.com/scholar?q=%22M+Fahrudin+Muna%22" target="_blank" rel="noopener noreferrer">Scholar</a>
+            <a class="badge-link" href="https://orcid.org/0000-0002-8236-3520" target="_blank" rel="noopener noreferrer">ORCID: 0000-0002-8236-3520</a>
+            <a class="badge-link" href="https://www.linkedin.com/in/m-fahrudin-muna-34974275/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a class="badge-link" href="https://www.researchgate.net/profile/M-Fahrudin-Muna-2" target="_blank" rel="noopener noreferrer">ResearchGate</a>
+            <a class="badge-link" href="https://github.com/fadin2006" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
+        </div>
+
+        <div style="width: 140px; height: 140px; border-radius: var(--fusion-radius-lg); overflow: hidden; border: 2px solid var(--fusion-border); box-shadow: var(--fusion-shadow-sm);">
+          <img src="{{ '/assets/img/profile.jpg' | relative_url }}" alt="M Fahrudin Muna portrait" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
       </div>
-    </section>
+    </div>
 
-    <section class="cv-section">
-      <h3>Teaching</h3>
-      <p><strong>Teaching focus:</strong> Data Science</p>
-      <p style="margin-top:10px;"><strong>Assistant Teaching:</strong></p>
-      <ul>
-        <li>Engineering Economic Analysis</li>
-        <li>Engineering Statistics</li>
-        <li>Production Systems and Inventory Control</li>
-        <li>Human Factors Engineering</li>
-      </ul>
-    </section>
+    <!-- Education Section -->
+    <div style="margin-bottom: 56px;">
+      <div class="fusion-kicker">Academic Formation</div>
+      <h2 style="margin-bottom: 28px;">Education</h2>
 
-    <section class="cv-section">
-      <h3>Education</h3>
-      <ul>
-        <li><strong>PhD</strong>, Industrial &amp; Systems Engineering, King Fahd University of Petroleum and Minerals, Saudi Arabia</li>
-        <li><strong>MSc</strong>, Industrial &amp; Systems Engineering, Universitas Gadjah Mada (UGM)</li>
-        <li><strong>BEng</strong>, Physics Engineering, Universitas Gadjah Mada (UGM)</li>
-      </ul>
-    </section>
+      <div class="cv-timeline">
+        <div class="cv-timeline-item">
+          <div class="cv-timeline-dot"></div>
+          <div class="cv-item-year">2022 &ndash; PRESENT</div>
+          <h3 class="cv-item-title">Doctor of Philosophy (PhD) in Industrial &amp; Systems Engineering</h3>
+          <div class="cv-item-subtitle">King Fahd University of Petroleum and Minerals (KFUPM), Dhahran, Saudi Arabia</div>
+          <p style="margin: 0; font-size: 0.96rem; color: var(--fusion-text-muted);">
+            Doctoral dissertation research focused on renewable energy time-series dynamics, expanding-window deep LSTM forecasting, and stochastic optimization for capacity expansion planning under high uncertainty.
+          </p>
+        </div>
 
-    <section class="cv-section">
-      <h3>Selected Publications</h3>
-      <ol class="cv-publications">
-        <li><strong>Dynamic Characteristics of Renewable Energy Generation and Consumption Using LSTM Deep Learning Algorithm</strong> — MF Muna, AI Malik, MN Syed — <em>Results in Engineering</em>, 2026.</li>
-        <li><strong>A Survey of Sentiment Analysis in Halal Tourism Using Machine Learning and Lexicon Approaches for Extracting Sentiment Polarity</strong> — B Jan, A Hamid, MF Muna, H Aljamaaan — <em>Engineering Headway</em>, 2025.</li>
-        <li><strong>Usability Testing of Smart Inventory Software for EOQ, ROP and SS with Recommendation Decision in the Context of SMEs</strong> — MF Muna, F Trapsilawati, M Ushada, S Alsana — <em>AIP Conference Proceedings</em>, 2023.</li>
-        <li><strong>Pengembangan Dan Evaluasi Usabilitas Sistem Pendukung Keputusan Pada Proses Bisnis UMKM</strong> — MF Muna — <em>Universitas Gadjah Mada</em>, 2022.</li>
-        <li><strong>Stiction Compensation Using PI-Sliding Mode Control for Pneumatic Valve</strong> — S Elferik, MF Muna, TB Susilo, IH Imran — <em>IEEE 12th International Multi-Conference on Systems, Signals &amp; Devices</em>, 2015.</li>
-      </ol>
-      <div class="cv-note">These are arranged in the same style as your Google Scholar profile screenshot, from the most recent to earlier work.</div>
-    </section>
+        <div class="cv-timeline-item">
+          <div class="cv-timeline-dot"></div>
+          <div class="cv-item-year">2018 &ndash; 2022</div>
+          <h3 class="cv-item-title">Master of Science (MSc) in Industrial &amp; Systems Engineering</h3>
+          <div class="cv-item-subtitle">Universitas Gadjah Mada (UGM), Yogyakarta, Indonesia</div>
+          <p style="margin: 0; font-size: 0.96rem; color: var(--fusion-text-muted);">
+            Thesis: <em>Pengembangan Dan Evaluasi Usabilitas Sistem Pendukung Keputusan Pada Proses Bisnis UMKM</em> (Supervised by Dr. Fitri Trapsilawati, S.T., M.Eng.). Engineered database-backed smart inventory DSS; achieved SUS improvement from 65 to 76.8.
+          </p>
+        </div>
 
-    <section class="cv-section">
-      <h3>Experience</h3>
-      <ul>
-        <li>Research and teaching activities in industrial and systems engineering</li>
-        <li>Energy time-series analysis, forecasting, and exploratory data analysis</li>
-        <li>Decision support, optimization, and simulation-oriented research</li>
-      </ul>
-    </section>
+        <div class="cv-timeline-item">
+          <div class="cv-timeline-dot"></div>
+          <div class="cv-item-year">2010 &ndash; 2015</div>
+          <h3 class="cv-item-title">Bachelor of Engineering (BEng) in Physics Engineering</h3>
+          <div class="cv-item-subtitle">Universitas Gadjah Mada (UGM), Yogyakarta, Indonesia</div>
+          <p style="margin: 0; font-size: 0.96rem; color: var(--fusion-text-muted);">
+            Rigorous engineering foundation in instrumentation, nonlinear process control, sliding-mode compensation, and mathematical modeling of physical energy systems.
+          </p>
+        </div>
+      </div>
+    </div>
 
-    <section class="cv-section">
-      <h3>Technical Skills</h3>
-      <ul>
-        <li>Python, MATLAB, R, SQL</li>
-        <li>Jupyter, Git, GitHub, Jekyll</li>
-        <li>Forecasting, EDA, STL decomposition, LSTM</li>
-        <li>Optimization modeling, simulation, data visualization</li>
-      </ul>
-    </section>
+    <!-- Teaching & Academic Mentorship -->
+    <div style="margin-bottom: 56px;">
+      <div class="fusion-kicker">Instructional Experience</div>
+      <h2 style="margin-bottom: 24px;">Teaching &amp; Assistantships</h2>
+
+      <div style="background: var(--fusion-surface); border: 1px solid var(--fusion-border); border-radius: var(--fusion-radius-lg); padding: 32px; box-shadow: var(--fusion-shadow-sm);">
+        <p style="font-size: 1.05rem; margin-bottom: 20px;">
+          <strong>Instructional Focus:</strong> Data Science, Computational Analytics, and Systems Optimization.
+        </p>
+
+        <h4 style="margin: 0 0 14px; color: var(--fusion-navy-900);">Assistant Teaching Courses:</h4>
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px;">
+          <div style="background: var(--fusion-slate-50); border: 1px solid var(--fusion-border); border-radius: var(--fusion-radius-md); padding: 18px;">
+            <div style="font-weight: 800; color: var(--fusion-navy-900); margin-bottom: 4px;">Engineering Economic Analysis</div>
+            <div style="font-size: 0.88rem; color: var(--fusion-slate-600);">Capital budgeting, discounted cash flow, and project feasibility.</div>
+          </div>
+          <div style="background: var(--fusion-slate-50); border: 1px solid var(--fusion-border); border-radius: var(--fusion-radius-md); padding: 18px;">
+            <div style="font-weight: 800; color: var(--fusion-navy-900); margin-bottom: 4px;">Engineering Statistics</div>
+            <div style="font-size: 0.88rem; color: var(--fusion-slate-600);">Probability distributions, hypothesis testing, and regression diagnostics.</div>
+          </div>
+          <div style="background: var(--fusion-slate-50); border: 1px solid var(--fusion-border); border-radius: var(--fusion-radius-md); padding: 18px;">
+            <div style="font-weight: 800; color: var(--fusion-navy-900); margin-bottom: 4px;">Production Systems &amp; Inventory</div>
+            <div style="font-size: 0.88rem; color: var(--fusion-slate-600);">Lot-sizing, MRP, EOQ/ROP policies, and scheduling.</div>
+          </div>
+          <div style="background: var(--fusion-slate-50); border: 1px solid var(--fusion-border); border-radius: var(--fusion-radius-md); padding: 18px;">
+            <div style="font-weight: 800; color: var(--fusion-navy-900); margin-bottom: 4px;">Human Factors Engineering</div>
+            <div style="font-size: 0.88rem; color: var(--fusion-slate-600);">Cognitive ergonomics, usability evaluation (SUS), and interface testing.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Technical & Computational Skills -->
+    <div style="margin-bottom: 56px;">
+      <div class="fusion-kicker">Technical Toolkit</div>
+      <h2 style="margin-bottom: 24px;">Technical Skills &amp; Proficiencies</h2>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px;">
+        <div style="background: var(--fusion-surface); border: 1px solid var(--fusion-border); border-radius: var(--fusion-radius-md); padding: 24px; box-shadow: var(--fusion-shadow-xs);">
+          <h4 style="margin: 0 0 12px; color: var(--fusion-teal-800);">Programming Languages</h4>
+          <p style="margin: 0; font-size: 0.94rem; color: var(--fusion-slate-700); line-height: 1.7;">
+            Python (NumPy, SciPy, Pandas, PyTorch), MATLAB, R, SQL, VBA.
+          </p>
+        </div>
+
+        <div style="background: var(--fusion-surface); border: 1px solid var(--fusion-border); border-radius: var(--fusion-radius-md); padding: 24px; box-shadow: var(--fusion-shadow-xs);">
+          <h4 style="margin: 0 0 12px; color: var(--fusion-teal-800);">Time-Series &amp; Deep Learning</h4>
+          <p style="margin: 0; font-size: 0.94rem; color: var(--fusion-slate-700); line-height: 1.7;">
+            LSTM, Recurrent Neural Networks, STL decomposition, Stationarity (ADF/KPSS), Expanding-window cross-validation.
+          </p>
+        </div>
+
+        <div style="background: var(--fusion-surface); border: 1px solid var(--fusion-border); border-radius: var(--fusion-radius-md); padding: 24px; box-shadow: var(--fusion-shadow-xs);">
+          <h4 style="margin: 0 0 12px; color: var(--fusion-teal-800);">Optimization &amp; OR</h4>
+          <p style="margin: 0; font-size: 0.94rem; color: var(--fusion-slate-700); line-height: 1.7;">
+            Mixed-Integer Linear Programming (MILP), Stochastic Programming, Generator Expansion Planning (GEP), Multi-objective Pareto.
+          </p>
+        </div>
+
+        <div style="background: var(--fusion-surface); border: 1px solid var(--fusion-border); border-radius: var(--fusion-radius-md); padding: 24px; box-shadow: var(--fusion-shadow-xs);">
+          <h4 style="margin: 0 0 12px; color: var(--fusion-teal-800);">Simulation &amp; Control</h4>
+          <p style="margin: 0; font-size: 0.94rem; color: var(--fusion-slate-700); line-height: 1.7;">
+            Monte Carlo Simulation, Sliding Mode Control (SMC), Pneumatic valve stiction dynamics, Sensitivity modeling.
+          </p>
+        </div>
+
+        <div style="background: var(--fusion-surface); border: 1px solid var(--fusion-border); border-radius: var(--fusion-radius-md); padding: 24px; box-shadow: var(--fusion-shadow-xs);">
+          <h4 style="margin: 0 0 12px; color: var(--fusion-teal-800);">Decision Systems &amp; UX</h4>
+          <p style="margin: 0; font-size: 0.94rem; color: var(--fusion-slate-700); line-height: 1.7;">
+            Decision Support Systems (DSS), System Usability Scale (SUS), Think-aloud protocols, SME inventory optimization.
+          </p>
+        </div>
+
+        <div style="background: var(--fusion-surface); border: 1px solid var(--fusion-border); border-radius: var(--fusion-radius-md); padding: 24px; box-shadow: var(--fusion-shadow-xs);">
+          <h4 style="margin: 0 0 12px; color: var(--fusion-teal-800);">Tools &amp; Environments</h4>
+          <p style="margin: 0; font-size: 0.94rem; color: var(--fusion-slate-700); line-height: 1.7;">
+            Jupyter, Git, GitHub, LaTeX / Overleaf, Jekyll, Linux / Windows.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Selected Publications Summary -->
+    <div>
+      <div class="fusion-kicker">Publications Summary</div>
+      <h2 style="margin-bottom: 24px;">Peer-Reviewed Publications</h2>
+
+      <div style="background: var(--fusion-surface); border: 1px solid var(--fusion-border); border-radius: var(--fusion-radius-lg); padding: 32px; box-shadow: var(--fusion-shadow-sm);">
+        <ol style="margin: 0; padding-left: 22px; line-height: 2; color: var(--fusion-slate-700); font-size: 0.96rem;">
+          <li><strong>Dynamic Characteristics of Renewable Energy Generation and Consumption Using LSTM Deep Learning Algorithm</strong> &mdash; M. F. Muna, A. I. Malik, M. N. Syed &mdash; <em>Results in Engineering</em>, 2026.</li>
+          <li><strong>A Survey of Sentiment Analysis in Halal Tourism Using Machine Learning and Lexicon Approaches for Extracting Sentiment Polarity</strong> &mdash; B. Jan, A. Hamid, M. F. Muna, H. Aljamaan &mdash; <em>Engineering Headway</em>, 2025.</li>
+          <li><strong>Usability Testing of Smart Inventory Software for EOQ, ROP and SS with Recommendation Decision in the Context of SMEs</strong> &mdash; M. F. Muna, F. Trapsilawati, M. Ushada, S. Alsana &mdash; <em>AIP Conference Proceedings</em>, 2023.</li>
+          <li><strong>Pengembangan Dan Evaluasi Usabilitas Sistem Pendukung Keputusan Pada Proses Bisnis UMKM</strong> &mdash; M. F. Muna &mdash; <em>Universitas Gadjah Mada</em>, 2022.</li>
+          <li><strong>Stiction Compensation Using PI-Sliding Mode Control for Pneumatic Valve</strong> &mdash; S. Elferik, M. F. Muna, T. B. Susilo, I. H. Imran &mdash; <em>IEEE SSD</em>, 2015.</li>
+        </ol>
+
+        <div style="margin-top: 24px;">
+          <a class="fusion-btn primary sm" href="{{ '/publications/' | relative_url }}">View Full Publications Page with BibTeX &rarr;</a>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

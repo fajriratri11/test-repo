@@ -2,11 +2,13 @@
 layout: base
 ---
 
-{% include header.html type="page" %}
+{% unless page.no_header or page.no-header or page.custom_header %}
+  {% include header.html type="page" %}
+{% endunless %}
 
-<div class="{% if page.full-width %} container-fluid {% else %} container-md {% endif %}" role="main">
-  <div class="row">
-    <div class="{% if page.full-width %} col {% else %} col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 {% endif %}">
+<div class="{% if page.full-width or page.full_width %}container-fluid p-0{% else %}container-md{% endif %}" role="main">
+  <div class="{% if page.full-width or page.full_width %}w-100{% else %}row{% endif %}">
+    <div class="{% if page.full-width or page.full_width %}w-100{% else %}col-xl-8 offset-xl-2 col-lg-10 offset-lg-1{% endif %}">
       {% if page.before-content %}
         <div class="before-content">
           {% for file in page.before-content %}
