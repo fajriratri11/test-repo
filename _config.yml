@@ -160,6 +160,7 @@ exclude:
   - README.md
   - screenshot.png
   - docs/
+  - serve_site.py
 
 plugins:
   - jekyll-paginate
